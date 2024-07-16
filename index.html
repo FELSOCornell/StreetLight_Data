@@ -1,0 +1,732 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Getting Started</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1d163be1-7633-4705-b77f-e8e7b5585012" class="page sans"><header><h1 class="page-title">Getting Started</h1><p class="page-description"></p></header><div class="page-body"><p id="7d3eb793-8283-4339-b645-d83fe94daa77" class="">👋  Welcome! Get your team started:</p><p id="225c9f7f-bf1c-4499-987a-8d1f0ad082cb" class="">
+</p><ul id="b59df7f8-b0f8-4bfa-bcf5-361ae0ed90f8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Invite your teammates to come work with you</span><div class="indented"><ul id="476dc064-a965-4bbe-8308-da5ad1da7d26" class="bulleted-list"><li style="list-style-type:disc">Click <strong>Settings &amp; Members</strong> </li></ul><ul id="223963e8-eb88-4438-a505-9198642ca1fa" class="bulleted-list"><li style="list-style-type:disc">Send an <strong>Invite link</strong> to let people join</li></ul><ul id="bce46500-4f5a-42df-a686-32e8dc10ed84" class="bulleted-list"><li style="list-style-type:disc">Click <strong>Add a member</strong> to send email invites</li></ul></div></li></ul><ul id="b957102a-ff3c-49e3-bd2c-6347698d6667" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Add more teamspaces to give each department their own dedicated areas</span><div class="indented"><ul id="28acaf5b-7c5a-44b4-aa43-fb2416d9066c" class="bulleted-list"><li style="list-style-type:disc">Use the <strong>General</strong> <strong>teamspace</strong> for company-wide docs &amp; projects</li></ul><ul id="336532aa-db26-4a88-a3d0-745236499081" class="bulleted-list"><li style="list-style-type:disc">Click the <strong>+ New teamspace</strong> button to make spaces for engineers, designers &amp; more</li></ul><ul id="234a0f48-d5c7-46e8-be63-c91eba52e7c2" class="bulleted-list"><li style="list-style-type:disc">Your colleagues can join and leave teamspaces to customize their sidebars</li></ul><ul id="1370b84c-4473-4da2-af41-b8ccc304a29d" class="bulleted-list"><li style="list-style-type:disc">Click the <strong>•••</strong> next to a teamspace’s name to customize its owners, members &amp; settings</li></ul></div></li></ul><ul id="bb3e9628-3167-4787-880e-bfd5c9a4f790" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Click <strong>+</strong> in your sidebar to add pages</span><div class="indented"><ul id="429918b9-4233-4bb4-ad00-12bf3a7bd009" class="bulleted-list"><li style="list-style-type:disc">Pages in <strong>Teamspaces</strong> are shared with different areas of the company</li></ul><ul id="e7bcd140-823b-46bc-8821-df00311f7d1c" class="bulleted-list"><li style="list-style-type:disc">Pages in <strong>Private </strong>are not shared with any other workspace members</li></ul><ul id="ed8ef399-37fe-43ca-a040-630eace6c89d" class="bulleted-list"><li style="list-style-type:disc">Click <strong>Share</strong> at the top right to invite others to a page</li></ul><ul id="f78e610f-e27e-46d2-b380-773c14a3c393" class="bulleted-list"><li style="list-style-type:disc">Click <strong>Templates</strong> in your sidebar to add pre-made pages</li></ul></div></li></ul><ul id="1036cb71-0c40-4d19-b214-4c69aa2fea8f" class="toggle"><li><details open=""><summary>This is a toggle block. Click the little triangle to see more useful tips!</summary><ul id="a62745cb-45e0-43d0-82d9-15639c25c1ba" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.notion.so/templates"><mark class="highlight-red">notion.com/templates</mark></a></strong>: More templates built by the Notion community</li></ul><ul id="33440746-dace-4cba-9083-4a802bd75a4e" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.notion.so/help"><mark class="highlight-red">notion.com/help</mark></a></strong>:<strong> </strong>Guides and FAQs for everything in Notion</li></ul><ul id="268834e6-14a7-4e31-9a2a-702b51dc5f03" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong><a href="http://notion.com/guides">notion.com/guides</a></strong></mark>: Watch videos and read tutorials to become a Notion expert</li></ul></details></li></ul><p id="0e7a79cb-0f69-4576-8dbc-d4b982527b81" class="">
+</p><p id="3d94a006-0b21-4739-a61f-3da9825d23b9" class="block-color-gray"><a href="https://www.notion.so/1-1-Notes-7e821366fab240029d22fd1ced7eddad?pvs=21">👉 </a><a href="https://www.notion.so/1-1-Notes-7e821366fab240029d22fd1ced7eddad?pvs=21"><strong>Have a question? </strong></a><a href="https://www.notion.so/1-1-Notes-7e821366fab240029d22fd1ced7eddad?pvs=21">Click the </a><a href="https://www.notion.so/1-1-Notes-7e821366fab240029d22fd1ced7eddad?pvs=21"><code>?</code></a><a href="https://www.notion.so/1-1-Notes-7e821366fab240029d22fd1ced7eddad?pvs=21"> at the bottom right for more guides, or to send us a message.</a></p><p id="dec8700d-2547-4db4-b20c-8e393116c3e2" class="">
+</p><figure id="820c06ea-0e61-44da-93fa-c322b9f16f54" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled.png"/></a></figure><p id="aac2b370-8980-4e1c-a699-798e2726ca42" class="">
+</p><figure id="4b858e22-e784-4057-8e4e-81a84371f314" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%201.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%201.png"/></a></figure><p id="189581e4-3263-41ec-a541-a3b463340f3c" class="">
+</p><p id="6653f9ab-e73b-477f-9893-dfdcef394c6b" class=""><strong><strong>1. Zone Activity<br/>–<br/></strong></strong></p><p id="4a735aa3-3fc9-4fa9-912e-dbb64e42ba68" class="">Analyzes all travel patterns in a zone set, regardless of origins or destinations</p><p id="82fd2dfc-f20a-4b36-9f70-bce60dd2b0c8" class=""><strong>Zones:</strong></p><ul id="22e79364-d7b2-4695-8d48-bfe317eab138" class="bulleted-list"><li style="list-style-type:disc">Areas where trips start and end</li></ul><ul id="f7b89253-9837-4fcf-a230-b76df36bc95c" class="bulleted-list"><li style="list-style-type:disc">Segments where trips pass through</li></ul><p id="400613c0-1a85-4bdd-805a-25562abce889" class=""><strong>Available Options:</strong></p><ul id="d80f93de-b1a3-420a-b43a-31890c4dd12b" class="bulleted-list"><li style="list-style-type:disc">Trip Attributes</li></ul><ul id="e2447b16-d454-4fa9-9940-f4453a50e306" class="bulleted-list"><li style="list-style-type:disc">Traveler Attributes</li></ul><ul id="9f44a399-3594-4dca-a6c4-3ea3e4021364" class="bulleted-list"><li style="list-style-type:disc">Inferred Home and Work Locations</li></ul><p id="46eca81f-b87e-4853-afd5-acf7443f68fa" class=""><strong>Example:</strong></p><ul id="0240eaab-5736-49af-bd8e-7d48b7a4f609" class="bulleted-list"><li style="list-style-type:disc">Assessing hourly trends of trips occurring on Main St.</li></ul><ul id="fc92aa5e-3135-4d29-bfd1-d8f50b1cce06" class="bulleted-list"><li style="list-style-type:disc">Assessing trips that end at San Francisco airport</li></ul><figure id="9f5b5aee-1972-4a9a-8fcf-da5c8e3944c7" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%202.png"><img style="width:1680px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%202.png"/></a></figure><figure id="f86d4092-7d02-46cb-ae63-84c48dc176ed" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/1342lwpefse7/scormcontent/assets/m0RJi9NBJAQJTd7b_NaBEKrrga-n8YyEr.png"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/1342lwpefse7/scormcontent/assets/m0RJi9NBJAQJTd7b_NaBEKrrga-n8YyEr.png"/></a></figure><p id="15aa1352-b297-4448-a728-f674edbb500b" class="">
+</p><p id="49fa8ba5-e3ab-46ad-b3b3-eb713e30d170" class=""><strong><strong>2. Origin-Destination<br/>–<br/></strong></strong></p><p id="10bf4c0f-8030-4169-8163-2eeac64357dd" class="">Used to analyze trips that have an origin in one or more zone sets and a destination in one or more zone sets</p><p id="da82d44e-dd13-4cba-a90c-64eaf5fa3a36" class=""><strong>Zones:</strong></p><ul id="736c220d-f542-40cb-853e-010e784264b8" class="bulleted-list"><li style="list-style-type:disc">Areas where trips start and end</li></ul><ul id="58850f57-8e0b-423d-b69b-47706af08919" class="bulleted-list"><li style="list-style-type:disc">Segments where trips pass through</li></ul><p id="68fddd70-5375-45fa-ae85-b209d048ae59" class=""><strong>Available Options:</strong></p><ul id="a6447d0f-0817-45ef-9e6e-84c8a56a055b" class="bulleted-list"><li style="list-style-type:disc">Trip Attributes</li></ul><ul id="ec65d9bf-181d-4087-9d4f-c50dd26ca58d" class="bulleted-list"><li style="list-style-type:disc">Traveler Attributes</li></ul><p id="f2ebe0c8-87e6-41bd-a772-c185763db793" class=""><strong>Examples:</strong></p><ul id="c4c2c515-8533-458e-99c6-4d7e92e97b87" class="bulleted-list"><li style="list-style-type:disc">Assessing trips from a neighborhood to a mall</li></ul><ul id="c75e137a-8edd-41cb-90e3-b249f2e2cf0e" class="bulleted-list"><li style="list-style-type:disc">Assessing trips from the airport to different off ramps as destinations</li></ul><figure id="7ba056cb-9342-4f60-bfc1-2c6ba711b838" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%203.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%203.png"/></a></figure><p id="1f3139cb-13a4-4ef4-ad83-67e45fdaf57e" class="">
+</p><p id="b13f4063-25f4-41d3-8fda-ac75138d0a71" class=""><strong><strong>3. Origin-Destination Through Middle Filters<br/>–<br/></strong></strong></p><p id="1c6375d4-2882-447f-9e00-0e158e837d13" class="">Used to analyze trips that start in one or more zone sets, pass through one or more zone sets, and then end in one or more zone sets (often called Select Link in the industry)</p><p id="62450182-259d-4c20-8345-35e460663228" class=""><strong>Zones:</strong></p><ul id="1be0ad74-ff06-4e14-8388-5244c7d62cc0" class="bulleted-list"><li style="list-style-type:disc">Origins and destinations are areas where trips start and end or segments where trips pass through</li></ul><ul id="f58bba56-35b8-4c31-b4ba-d049ddb22bf0" class="bulleted-list"><li style="list-style-type:disc">Middle filter is always a line segment where trips pass through</li></ul><p id="babc9116-c23a-48c2-8efd-e1d20cb8a0c7" class=""><strong>Available Options:</strong></p><ul id="f7d1b960-4a84-4deb-85b2-c9022e66d780" class="bulleted-list"><li style="list-style-type:disc">Trip Attributes</li></ul><ul id="03e9930e-f092-40ab-a302-16ba2f4b5579" class="bulleted-list"><li style="list-style-type:disc">Traveler Attributes</li></ul><p id="b586d91c-a7f3-4a30-9b28-883357418220" class=""><strong>Example:</strong></p><ul id="8ab13119-e3c1-4718-b0f5-db1ae3a239c9" class="bulleted-list"><li style="list-style-type:disc">Assessing the proportions of trips using each of three bridges that connect a city on the right side of the river to the left side</li></ul><ul id="d79cfc2e-e6b1-4703-af93-9820bd416e9d" class="bulleted-list"><li style="list-style-type:disc">Assessing which freeway off ramps were used by trips originating in one neighborhood and ending in another neighborhood</li></ul><figure id="2cce28e3-963d-4351-9e10-deaf9ce6ce96" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%204.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%204.png"/></a></figure><p id="91871669-cd85-4bb8-ae5a-4a44fbf3f475" class="">
+</p><p id="8f32d14a-52b9-4757-afb1-0f29e57cf174" class=""><strong><strong>4. Trips to or From Pre-Set Geography<br/>–<br/></strong></strong></p><p id="3230793f-a98f-431d-8cec-8d009af05132" class="">Used to analyze trips that start or end in one or more zone sets and end or start in another preset group of geographies (ZIP codes, TAZs, etc.)</p><p id="eb4c4363-18eb-4977-ba32-46b26417724a" class=""><strong>Zones</strong></p><ul id="0db2769a-396f-457c-8a98-821f5fc62d6a" class="bulleted-list"><li style="list-style-type:disc">One zone set as origin or destination</li></ul><ul id="57837111-572a-4b7a-a5d8-7ea6ce84f976" class="bulleted-list"><li style="list-style-type:disc">Pre-set geographies<ul id="747cdd03-392f-4c63-a219-bc4b5813b054" class="bulleted-list"><li style="list-style-type:circle">US Census Block Groups</li></ul><ul id="6aa71169-9540-439b-904e-58898f79a391" class="bulleted-list"><li style="list-style-type:circle">US ZIP codes</li></ul><ul id="a4e56f35-95ee-4137-a8de-a18e4fb8303a" class="bulleted-list"><li style="list-style-type:circle">US Traffic Analysis Zones</li></ul><ul id="b0314a81-7492-4a5a-9f7d-51e55726f743" class="bulleted-list"><li style="list-style-type:circle">Canadian Dissemination Areas</li></ul></li></ul><p id="3cec09bb-c6e1-4a45-b9b5-b28b389961ef" class=""><strong>Available Options</strong></p><ul id="decc22be-7ec0-4839-8608-5178d900e8cc" class="bulleted-list"><li style="list-style-type:disc">Trip Attributes</li></ul><ul id="913a5b7c-0670-445d-8940-2ad82c892868" class="bulleted-list"><li style="list-style-type:disc">Traveler Attributes</li></ul><p id="eb14f437-bcff-4c69-af70-aec743a604b0" class=""><strong>Example:</strong></p><ul id="66fb9582-c0fa-47f8-92fd-f7fbba9563ea" class="bulleted-list"><li style="list-style-type:disc">Assessing which ZIP codes travelers are originating from when they arrive at the local stadium</li></ul><figure id="cd009cb0-3e47-454c-baab-6e15ac0991e2" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%205.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%205.png"/></a></figure><p id="1e6d1026-408d-4a45-b239-84acc70b5491" class="">
+</p><p id="7bee800a-0685-4671-b638-cafcb98f7c63" class=""><strong><strong>5. Top Routes for Zones<br/>–<br/></strong></strong></p><p id="4b7a51de-fdd7-4b76-af06-16a59352990b" class="">Allows you to visualize road segments with the most traffic to, from, or through a selected zone</p><p id="e48c954b-c439-4223-a3d4-ad858da82233" class=""><strong>Zones:</strong></p><ul id="2805d25a-4c41-4a82-8b07-313c5ec2a787" class="bulleted-list"><li style="list-style-type:disc">Areas where trips start and end</li></ul><ul id="8f8350d7-33a3-4b38-8610-10365ed3b839" class="bulleted-list"><li style="list-style-type:disc">Segments where trips pass through</li></ul><p id="37c20c0b-52d7-4ac0-b8e9-ad1bfb668a73" class=""><strong>Available Options:</strong></p><ul id="e8001177-bdc3-4cd8-88c3-327dace7ce9b" class="bulleted-list"><li style="list-style-type:disc">Route segment types</li></ul><p id="bf0250ca-2e5a-4eec-a190-8019ae26991b" class=""><strong>Example:</strong></p><ul id="d6b2f88c-2d53-4ea7-bf13-c8cae42a6a48" class="bulleted-list"><li style="list-style-type:disc">Assessing which roads are most commonly used to arrive at the Central Business District of a city</li></ul><figure id="2d5908a3-d4b5-4aea-9bd8-5218cdf6e068" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%206.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%206.png"/></a></figure><p id="0c48ef2e-8593-4541-af80-b3bf06d86d3a" class="">
+</p><p id="a9288dfd-baec-4e0a-98a4-c5212eec137c" class=""><strong><strong>6. Top Routes Between Origins and Destinations<br/>–<br/></strong></strong></p><p id="5ebdb8ad-6c0a-416c-abcf-e0baab10477a" class="">Allows you to visualize road segments with the most traffic to, from, or through specified origin and destination zone sets</p><p id="010b009a-07ea-4bdc-b6e0-c2089d5f24a4" class=""><strong>Zones:</strong></p><ul id="1c48ed20-80fb-4094-b44a-ce70554aa35f" class="bulleted-list"><li style="list-style-type:disc">Areas where trips start and end</li></ul><ul id="98d7e01b-87a6-4a86-99d7-d58940fbdea3" class="bulleted-list"><li style="list-style-type:disc">Segments where trips pass through</li></ul><p id="58cfdce1-671d-4d61-a005-f278b6801110" class=""><strong>Available Options:</strong></p><ul id="25b38ec1-aa92-4461-8aae-b3f0bffa1ee1" class="bulleted-list"><li style="list-style-type:disc">Route segment types</li></ul><p id="70510acc-eeda-4974-8901-421880531d76" class=""><strong>Example:</strong></p><ul id="4fbe7d66-0bf0-42f5-99f8-6a769274a22d" class="bulleted-list"><li style="list-style-type:disc">Assessing the most commonly used roadways travelers use to get from the airport to the city center</li></ul><figure id="3257bbea-04d9-41d0-9de5-dfe42c573a5a" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%207.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%207.png"/></a></figure><p id="42211ded-1eb0-48d4-9579-798823ec2e94" class="">
+</p><p id="504437f5-5006-4eb6-a1ff-bcd87f83bca2" class=""><strong><strong>7. AADT<br/>–<br/></strong></strong></p><p id="83152524-88fa-45a7-af8b-a312ae433b3f" class="">Provides annual average daily traffic on specified roadways for the year chosen</p><p id="e7aca2a7-993d-460c-9553-6bea9b13904a" class=""><strong>Zones:</strong></p><ul id="b9974248-0685-462a-863f-ac0c9308add5" class="bulleted-list"><li style="list-style-type:disc">Segments where trips pass through</li></ul><p id="40f60645-3984-41e5-a88f-cd107176c13e" class=""><strong>Available Options:</strong></p><ul id="45760d6a-2f2c-4ed2-86a0-83192b68e464" class="bulleted-list"><li style="list-style-type:disc">None</li></ul><p id="2f1472ec-f764-450d-990b-5bcf54fbe2aa" class=""><strong>Example:</strong></p><ul id="1dc1eaf5-3ff3-433f-a0d4-d9c46c8cbb68" class="bulleted-list"><li style="list-style-type:disc">Getting AADT estimates for federal reporting requirements on state roads</li></ul><figure id="a1668668-d791-42d9-aa9a-22330cf0e255" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%208.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%208.png"/></a></figure><p id="66c0cec8-8219-4236-89a8-460b0eab909a" class="">
+</p><p id="a0e60b1e-21c6-42be-ad0f-629eee059add" class=""><strong><strong>8. Segment Analysis<br/>–<br/></strong></strong></p><p id="230cbb45-c9f3-42ac-ba17-ee602d90cd2a" class="">Provides various Metrics that describe trips through corridors and road performance Metrics:</p><ol type="1" id="2840bf0d-9ca2-4e8b-90b1-86419e10cc63" class="numbered-list" start="1"><li>Speed of trips</li></ol><ol type="1" id="a4e8701e-6577-4ab8-a2d8-904d54f520c7" class="numbered-list" start="2"><li>Duration of trips</li></ol><ol type="1" id="65190bc6-2c59-45e4-b8d0-ca752193a094" class="numbered-list" start="3"><li>&quot;Free Flow Factor&quot;, which measures congestion</li></ol><ol type="1" id="e8ea5b10-64b8-4836-98ad-3d3a23dfee2b" class="numbered-list" start="4"><li>Speed Percentile</li></ol><ol type="1" id="84d4a278-7904-47dc-919a-7eac835affb7" class="numbered-list" start="5"><li>Travel Time Percentile</li></ol><ol type="1" id="96dd84b2-07a7-4ec1-bef1-ba9645801d00" class="numbered-list" start="6"><li>Congestion</li></ol><ol type="1" id="d3b0c2d0-67d4-4119-b783-abb8f4ae14c7" class="numbered-list" start="7"><li>Vehicle Miles of Travel/Vehicle Kilometers of Travel (VMT/VKT)</li></ol><ol type="1" id="19e994c1-8818-4169-a585-fa7efcb7f7c6" class="numbered-list" start="8"><li>Vehicle Hours of Delay (VHD)</li></ol><p id="79055f74-7121-41be-bb1d-680980b21c7c" class=""><strong>Zones:</strong></p><ul id="273b6b96-0274-4b62-88d1-03da1053285c" class="bulleted-list"><li style="list-style-type:disc">Segments where trips pass through</li></ul><p id="dd4e313d-c9f7-4a6f-9a99-1c1820d5686d" class=""><strong>Available Options:</strong></p><ul id="ab1c29d2-48e1-47ad-b8a8-4ff79d719786" class="bulleted-list"><li style="list-style-type:disc">Speed</li></ul><ul id="87493985-d958-4c07-8898-8f53f6338dff" class="bulleted-list"><li style="list-style-type:disc">Duration</li></ul><ul id="ae84c1d3-a938-4918-a7d6-2251a36623cb" class="bulleted-list"><li style="list-style-type:disc">Speed Percentile</li></ul><ul id="19cf4d57-4ed4-44a0-b15c-c8bfea8d8cbf" class="bulleted-list"><li style="list-style-type:disc">Travel Time Percentile</li></ul><p id="5c3b1a39-3f55-45c7-b9e2-3519ca0eeebb" class=""><strong>Example:</strong></p><ul id="f2c07c17-1812-4f2d-bf0d-6459300f5981" class="bulleted-list"><li style="list-style-type:disc">Assessing the proportion of vehicles traveling at free flow speed on a roadway</li></ul><figure id="98e45133-a7ab-4cea-9e20-0962b847028c" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%209.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%209.png"/></a></figure><p id="921cbec8-201d-499b-8184-6614d56b6ef3" class="">
+</p><p id="9ae8ffea-7715-4a22-bf68-5f4b1564589c" class=""><strong><strong>9. Turning Movement Counts<br/>–<br/></strong></strong></p><p id="8ecc13c1-a45f-4f6e-9e3a-354cfacd9ab7" class="">Provides Metrics for trips at intersections including:</p><ol type="1" id="be310f25-7f7b-4ad8-afa3-7e9a4997436a" class="numbered-list" start="1"><li>Counts of trips that turn left, right and continue straight</li></ol><ol type="1" id="b41045db-a935-4b20-bdaa-132fe6ad2861" class="numbered-list" start="2"><li>Peak Hour Distribution</li></ol><ol type="1" id="7ceb5223-9b04-45de-bde8-ce6705a41b0a" class="numbered-list" start="3"><li>Peak Hour Factor</li></ol><p id="a79e54bd-c168-4d9a-aaaa-0989e791fa18" class=""><strong>Zones:</strong></p><ul id="72a9e60e-dbec-46b0-b18e-77398be6a3c1" class="bulleted-list"><li style="list-style-type:disc">Gates for every leg of an intersection</li></ul><p id="9b475453-1f1f-4773-8a6d-21da57884ad8" class=""><strong>Available Options:</strong></p><ul id="6d079056-f6fb-455e-a3b5-e07eca602f2a" class="bulleted-list"><li style="list-style-type:disc">None</li></ul><p id="83d507ab-cfea-42fa-acd9-2e66e9e27d21" class=""><strong>Example:</strong></p><ul id="dd34eb77-8ee3-41d0-bc77-502d7031eb25" class="bulleted-list"><li style="list-style-type:disc">Assessing the proportion of vehicles heading Eastbound that make left turns at an intersection</li></ul><figure id="8033cc22-bfc6-45be-9d2d-888124d66a92" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2010.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2010.png"/></a></figure><p id="6ec358e0-21c6-471a-9e09-69529bebfb13" class="">
+</p><p id="55d66895-57f4-4bca-809c-40680e6ffcd9" class=""><strong><strong>10. Congestion Management<br/>–<br/></strong></strong></p><p id="d5b9b2ee-a71d-4615-9d9a-c7bf275e5413" class="">Easily capture congestion analytics within standard geographies.</p><p id="d70e1815-205e-415e-a9ac-db8aae584e67" class="">Visualization tool highlights critical insights in a simple layout that is easily shared and can be downloaded.</p><p id="87877993-195e-4788-ae4d-72644809c20e" class="">Metrics include:</p><ul id="1b55af52-295a-47db-ac4c-50c3028c2147" class="bulleted-list"><li style="list-style-type:disc">Vehicle Miles Traveled</li></ul><ul id="c3a57db4-7688-49fc-80a8-4af2f1370c1e" class="bulleted-list"><li style="list-style-type:disc">Vehicle Hours of Delay</li></ul><ul id="6d4b37ef-d02f-498a-abf1-ba1338aaab0a" class="bulleted-list"><li style="list-style-type:disc">Travel Time Index</li></ul><ul id="1db38006-9a75-44e9-b6f0-9e8ca9f97e76" class="bulleted-list"><li style="list-style-type:disc">Planning Time Index</li></ul><ul id="cf0d0396-5889-457e-9e4b-d87a281968a9" class="bulleted-list"><li style="list-style-type:disc">Reliability Factor</li></ul><p id="9fe2840a-6b90-4599-ab9d-a8d3427d75d3" class="">Use-case focused analytics, purpose built to provide industry standard data</p><figure id="79776088-462e-4640-8d6a-af27ddd68895" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2011.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2011.png"/></a></figure><p id="eb9a0db3-409f-42ce-a14e-9c57ac8489d5" class="">
+</p><p id="b1aacc01-f514-4671-9dbc-74c4187f4ee3" class=""><strong><strong>11. Roadway Volumes<br/>–<br/></strong></strong></p><p id="c60ec053-4c7a-43cb-9541-7f58422aa2a5" class="">Quickly collect AADT Metrics for your roadways.</p><p id="2615c6fa-b590-4153-b57f-82ec1915f916" class="">Can capture up to 50,000 zones in one analysis</p><figure id="fe10d6f4-f499-41ce-af6d-dd79b00b3e3e" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2012.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2012.png"/></a></figure><p id="1ba3c9fe-3c51-4089-9b10-47b44347e332" class="">
+</p><p id="53ffc0e7-01df-4684-9b65-071e558bd329" class=""><strong><strong>12. Network Performance<br/>–<br/></strong></strong></p><p id="3e64104d-68c2-48e2-85f8-8fa19776776a" class="">Quickly calculate volume, speed, travel time and road performance metrics such as congestion and VMT.</p><p id="8095c306-6f35-4232-88a8-805c7adb35fe" class=""><strong>Zones:</strong></p><ul id="bca8b616-a0e9-47cb-b794-aef7842786ad" class="bulleted-list"><li style="list-style-type:disc">Zone Library line zones</li></ul><ul id="19b8139c-be1f-4a9b-bb20-ef8b2ea802cb" class="bulleted-list"><li style="list-style-type:disc">Maximum of 1,000 zones per analysis</li></ul><p id="f1309863-33a2-46d0-8dbc-584def4ac642" class=""><strong>Available Options:</strong></p><ul id="3f4828ec-23bc-41a6-afad-5014984df954" class="bulleted-list"><li style="list-style-type:disc">Speed percentiles</li></ul><p id="5e1c394c-128a-492f-b2b1-dccfce278fcc" class=""><strong>Example:</strong></p><ul id="c54af4c9-b115-4166-a169-e56e983b223a" class="bulleted-list"><li style="list-style-type:disc">Calculating the average time and congestion rate for trips from the start to the end of a line zone</li></ul><figure id="ceba613e-31a7-4c95-a2a1-527046e9ca1e" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2013.png"><img style="width:544px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2013.png"/></a></figure><p id="e3a65025-9d94-44b0-ae4e-13d7af6d4a51" class="">
+</p><p id="c43a51bc-5ab4-4def-a94d-be4ba49b7d27" class=""><strong><strong>13. Corridor Study<br/>–<br/></strong></strong></p><p id="8ccba3a0-fba4-43d5-8d7b-964cc7d5f2f0" class="">Easily capture key transportation analytics for specified corridors within standard geographies.</p><p id="dd386b1c-2681-470c-9979-b1ee79f7b6d7" class="">Visualization tool highlights critical insights in a simple layout that is easily shared and can be downloaded.</p><p id="b47ef653-921f-4122-b64f-1a1958e3e993" class=""><strong>Metrics include:</strong></p><ul id="d7168392-d2a6-4521-b855-c743fcc0b1e1" class="bulleted-list"><li style="list-style-type:disc">Vehicle Miles Traveled</li></ul><ul id="03662a2d-f485-4845-ae25-4df033c2838c" class="bulleted-list"><li style="list-style-type:disc">Vehicle Hours of Delay</li></ul><ul id="91da4c9a-3762-437a-a91d-5a75ac9a99dc" class="bulleted-list"><li style="list-style-type:disc">Travel Time</li></ul><ul id="5fd5f2c0-8bdd-4583-bb96-ed5986d8bb71" class="bulleted-list"><li style="list-style-type:disc">Congestion</li></ul><p id="38d5feca-5815-476f-8259-97ad5e8a1b05" class="">Use-case focused analytics, purpose built to provide industry standard data</p><figure id="ed8daa62-59c3-476d-9d08-93f36ebb97f4" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2014.png"><img style="width:703px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2014.png"/></a></figure><p id="220a5110-091f-453d-bac6-8e248d9dde02" class="">
+</p><p id="3c318cef-22db-4847-b065-213349ffaae0" class=""><strong><strong>14. Active Transportation<br/>–<br/></strong></strong></p><p id="baf6b8f7-9521-4cae-876e-3b76215d4f15" class="">Easily capture annualized, average daily volume for bicycle and pedestrian modes within standard geographies.</p><p id="629f503c-586f-4a7b-b525-c3a538babc78" class="">Visualization tool highlights critical insights in a simple layout that is easily shared and can be downloaded.</p><p id="12c63fff-dedd-4e63-afe1-68f4c10fca8f" class=""><strong>Metrics include:</strong></p><ul id="06e671bc-7ffe-4005-a909-cb27f7ca1718" class="bulleted-list"><li style="list-style-type:disc">Volume</li></ul><ul id="d8a50f9b-e8f1-418b-b1d0-159935452ae6" class="bulleted-list"><li style="list-style-type:disc">Volume (Percentage change)</li></ul><ul id="b7908176-d7b5-4ef1-9955-5c5a36464ce4" class="bulleted-list"><li style="list-style-type:disc">Volume per person</li></ul><ul id="c13e9ee2-145a-4bc3-8707-1b648f510151" class="bulleted-list"><li style="list-style-type:disc">Volume per square mile</li></ul><ul id="32bd2b73-b90b-46e4-bbee-6b3d2c64f3c6" class="bulleted-list"><li style="list-style-type:disc">Mode Share</li></ul><p id="f2baccb7-c181-4268-ad4f-5a5fdc6cb11e" class="">Use-case focused analytics, purpose built to provide industry standard data</p><figure id="1af777a9-7c38-4ae7-bd6f-a4917058fce4" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2015.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2015.png"/></a></figure><p id="bf17afa0-2547-48ba-bce2-a458fef1ec8b" class="">
+</p><table id="5fc34943-4021-4660-bfac-6248f97845c2" class="simple-table"><tbody><tr id="a97d93f1-8fd3-4532-81e3-cddbae4417cc"><td id="KDsN" class=""><strong>Mode of Travel</strong></td><td id="\ehg" class=""></td><td id="l&gt;a\" class=""></td><td id="x::z" class=""></td><td id="hcUC" class=""></td><td id="okJ^" class=""></td></tr><tr id="ed3d96b6-5c68-4b83-b6c3-57b38d69a9d1"><td id="KDsN" class=""><strong>Type of Analysis</strong></td><td id="\ehg" class="">All Vehicles</td><td id="l&gt;a\" class="">Trucks</td><td id="x::z" class="">Bicycles</td><td id="hcUC" class="">Pedestrians</td><td id="okJ^" class="">Bus</td></tr><tr id="d29bdaa4-4b93-4710-8c0b-34d90df2b5ba"><td id="KDsN" class="">Zone Activity</td><td id="\ehg" class="">✔</td><td id="l&gt;a\" class="">✔</td><td id="x::z" class="">✔</td><td id="hcUC" class="">✔</td><td id="okJ^" class="">✔</td></tr><tr id="b48e17dc-d8b4-4801-b956-3a4b9aed8d67"><td id="KDsN" class="">Origin-Destination</td><td id="\ehg" class="">✔</td><td id="l&gt;a\" class="">✔</td><td id="x::z" class="">✔</td><td id="hcUC" class="">✔</td><td id="okJ^" class="">✔</td></tr><tr id="f5c57993-d57a-422b-a860-0ab93a8f399d"><td id="KDsN" class="">O-D Through Middle Filter</td><td id="\ehg" class="">✔</td><td id="l&gt;a\" class="">✔</td><td id="x::z" class="">✔</td><td id="hcUC" class=""></td><td id="okJ^" class="">✔</td></tr><tr id="e94c12ec-f9fd-43c5-9142-394264440811"><td id="KDsN" class="">Trips to/from Pre-Set Geography</td><td id="\ehg" class="">✔</td><td id="l&gt;a\" class="">✔</td><td id="x::z" class="">✔</td><td id="hcUC" class="">✔</td><td id="okJ^" class=""></td></tr><tr id="6ac8928c-9335-45e8-a3a6-54826f4d3400"><td id="KDsN" class="">Top Routes for Zones</td><td id="\ehg" class="">✔</td><td id="l&gt;a\" class="">✔</td><td id="x::z" class=""></td><td id="hcUC" class=""></td><td id="okJ^" class=""></td></tr><tr id="cd4c5216-4272-44c1-8824-080f4d6a5741"><td id="KDsN" class="">Top Routes Between OD</td><td id="\ehg" class="">✔</td><td id="l&gt;a\" class="">✔</td><td id="x::z" class=""></td><td id="hcUC" class=""></td><td id="okJ^" class=""></td></tr><tr id="22fb6817-9018-405b-b84d-6770e6caf21d"><td id="KDsN" class="">AADT</td><td id="\ehg" class=""><strong>Both Modes*</strong></td><td id="l&gt;a\" class=""></td><td id="x::z" class=""></td><td id="hcUC" class=""></td><td id="okJ^" class=""></td></tr><tr id="f52b8a3d-ebfe-4fb0-bdc2-881cb87953e1"><td id="KDsN" class="">Segment Analysis</td><td id="\ehg" class="">✔</td><td id="l&gt;a\" class="">✔</td><td id="x::z" class=""></td><td id="hcUC" class=""></td><td id="okJ^" class=""></td></tr><tr id="b3a438be-5416-4e39-b2dc-5d75be6a14aa"><td id="KDsN" class="">Turning Movement Counts</td><td id="\ehg" class="">✔</td><td id="l&gt;a\" class=""></td><td id="x::z" class=""></td><td id="hcUC" class=""></td><td id="okJ^" class=""></td></tr><tr id="e4c9616b-d420-42c8-9d65-d7339fbf368a"><td id="KDsN" class="">Roadway Volumes QuickView</td><td id="\ehg" class="">✔</td><td id="l&gt;a\" class=""></td><td id="x::z" class=""></td><td id="hcUC" class=""></td><td id="okJ^" class=""></td></tr><tr id="b4b2c352-8597-4e39-889e-cbbfb00cf586"><td id="KDsN" class="">Congestion Management QuickView</td><td id="\ehg" class="">✔</td><td id="l&gt;a\" class=""></td><td id="x::z" class=""></td><td id="hcUC" class=""></td><td id="okJ^" class=""></td></tr></tbody></table><ul id="ca3310b9-0b19-4d77-95e4-40954375d3e9" class="bulleted-list"><li style="list-style-type:disc">The output for these analysis types uses <strong>both </strong>the All Vehicles and Trucks modes of travel in the algorithm.</li></ul><p id="ed5d317c-fef8-435b-ab69-9470a9d44ae9" class="">
+</p><table id="75f73ac5-5282-4472-b982-696c5ce193d7" class="simple-table"><tbody><tr id="6abfdd4b-8509-48c7-9066-87b31f21b14b"><td id="J&lt;N?" class=""><strong>Output Type</strong></td><td id=";lhc" class=""></td><td id="N;G\" class=""></td><td id="p\P`" class=""></td><td id="{USH" class=""></td></tr><tr id="f0bafe12-7525-4232-ac13-9faa96471031"><td id="J&lt;N?" class=""><strong>Mode of Travel</strong></td><td id=";lhc" class="">StreetLight Volume</td><td id="N;G\" class="">StreetLight Index</td><td id="p\P`" class="">Single-Factor Calibrated Index using user counts*</td><td id="{USH" class="">Single-Factor Calibrated Index using StreetLight AADT*</td></tr><tr id="5c6d1f99-639d-4b26-a973-c2b52883ba36"><td id="J&lt;N?" class="">All Vehicles LBS+</td><td id=";lhc" class="">✔</td><td id="N;G\" class="">✔</td><td id="p\P`" class="">✔</td><td id="{USH" class="">✔</td></tr><tr id="270a94cb-7232-4ac6-be58-230160eca4b8"><td id="J&lt;N?" class="">All Vehicles CVD+</td><td id=";lhc" class="">✔</td><td id="N;G\" class=""></td><td id="p\P`" class=""></td><td id="{USH" class=""></td></tr><tr id="241b35f9-e533-45a8-b21b-f7085f7c97aa"><td id="J&lt;N?" class="">Trucks</td><td id=";lhc" class=""><strong>✔</strong></td><td id="N;G\" class="">✔</td><td id="p\P`" class="">✔</td><td id="{USH" class=""></td></tr><tr id="ee866050-dfb6-4253-886d-9ad9bf2b05db"><td id="J&lt;N?" class="">Bicycle</td><td id=";lhc" class="">✔</td><td id="N;G\" class=""></td><td id="p\P`" class="">✔</td><td id="{USH" class=""></td></tr><tr id="6ff0e41b-b18f-44f1-bfab-d5dc3914c2e1"><td id="J&lt;N?" class="">Pedestrian</td><td id=";lhc" class="">✔</td><td id="N;G\" class=""></td><td id="p\P`" class="">✔</td><td id="{USH" class=""></td></tr><tr id="db3e3ee6-b31b-44ad-a77c-52c63808b583"><td id="J&lt;N?" class="">Bus</td><td id=";lhc" class=""></td><td id="N;G\" class="">✔</td><td id="p\P`" class=""></td><td id="{USH" class=""></td></tr><tr id="112d2300-393a-4943-80ca-a450a31c7e9f"><td id="J&lt;N?" class="">Rail</td><td id=";lhc" class=""></td><td id="N;G\" class="">✔</td><td id="p\P`" class=""></td><td id="{USH" class=""></td></tr></tbody></table><ul id="9d78e9eb-d81a-4e3f-af4a-772c19b67347" class="bulleted-list"><li style="list-style-type:disc"><strong>Single-Factor Calibrated Index </strong>Requires the addition of a calibration zone set which will either have user-provided counts or will be used to calculate AADT.</li></ul><ul id="f4c29050-8188-4665-b2ec-dd8a2d9f8921" class="bulleted-list"><li style="list-style-type:disc"><strong>*Sample Trip Counts</strong> - Counts are not converted to an average day. These are only available upon request and are used more for validation and scientific reporting than actually representing trip volumes for use in transportation planning use cases.</li></ul><p id="a61c19c0-f1d0-4fe8-8a6d-ae192fb4fdea" class=""><strong>✔StreetLight Truck Volume</strong> - Available with Zone Activity (Pass-Through Zones only) and Segment Analysis Types</p><p id="cd7b9c39-4e72-4e06-804e-a92d950a6490" class=""><strong>Note</strong>: You cannot compare StreetLight Index or Sample Trip Counts across modes. We will cover this topic more in later courses.</p><p id="dc213b6d-1518-43fa-8562-96a96ce1adaf" class="">
+</p><p id="36c8366c-f145-44e0-84a0-4d952e42ed8d" class=""><strong>StreetLight Volume</strong></p><p id="4705d7a5-e147-48bb-b051-41ac4b7260b7" class="">What is it?</p><ul id="e46b36d7-37dd-4f98-8c56-27246d7524cd" class="bulleted-list"><li style="list-style-type:disc">An estimated number of vehicles</li></ul><ul id="866e4438-bf3f-4982-a8f7-48127aabfd3d" class="bulleted-list"><li style="list-style-type:disc">This is the only output that can be interpreted at face value as an actual volume of vehicles</li></ul><p id="135b04d6-8b71-4e23-8ce8-fe90e06f19c2" class="">Available for the following Modes of Travel:</p><ul id="2c2c8ad7-2d85-4a3e-85d5-05cd0c50ae6c" class="bulleted-list"><li style="list-style-type:disc">All Vehicles LBS+ &amp; All Vehicles CVD+</li></ul><ul id="b908b18a-c3fb-4bbe-931d-35da4ed71159" class="bulleted-list"><li style="list-style-type:disc">Trucks if using Zone Activity (Pass-Through Zones only) or Segment Analysis Type</li></ul><ul id="5a061839-860a-4817-b301-380558962903" class="bulleted-list"><li style="list-style-type:disc">Bicycle</li></ul><ul id="4102dd71-4e43-4f3f-aaf1-0e9c59f148a7" class="bulleted-list"><li style="list-style-type:disc">Pedestrian</li></ul><p id="f69e4a88-f9b9-4fa4-86e1-0f361d1a843f" class="">Below is an example of StreetLight All Vehicles Volume for roads in Orange County.</p><figure id="b41fd697-4e3e-4b77-89b6-5b3e46077b6f" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2016.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2016.png"/></a></figure><p id="099f613c-039a-4c5f-b6fe-9942adbee039" class="">
+</p><p id="dd5b484f-61da-45e8-87e4-1ff19c371d79" class=""><strong>StreetLight Index</strong></p><p id="ec792cea-bc09-4199-8d7d-58e7c63096da" class="">What is it?</p><ul id="297c8766-476b-4daf-afb1-5e44217ee2c5" class="bulleted-list"><li style="list-style-type:disc">A relative measure of activity of zones in space and time meaning it can be used to get ratios and percentage differences of trips between zones</li></ul><ul id="d6c82c08-7ae7-4b25-94ab-a6949ec864cf" class="bulleted-list"><li style="list-style-type:disc">Needs calibration to be converted to an estimate of trip numbers</li></ul><p id="d32a16f4-77ac-473a-8060-feb304d9cb0e" class="">Available for the following Modes of Travel:</p><ul id="a7d23255-09a5-49f2-b3a8-d0e27727a11e" class="bulleted-list"><li style="list-style-type:disc">Available for <strong>all modes except </strong>Bicycle and Pedestrian<ul id="f9612f3a-e096-4765-bd9e-92202c8dc9ca" class="bulleted-list"><li style="list-style-type:circle">StreetLight Index for different modes are not directly comparable as they are normalized using different methods (for example Rail Index versus Bicycle Index)</li></ul></li></ul><p id="43a5ab5f-7cbf-4199-9291-6e315d00ef5a" class="">Below is an example showing StreetLight Bicycle Index in the San Diego Transit Center.</p><figure id="d6fb870f-4883-42f9-b7ea-b7a0c0fb7d65" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2017.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2017.png"/></a></figure><h1 id="ffd41a4d-6048-451a-a62f-5c997a4da9ef" class=""><strong>Use Cases</strong></h1><p id="6827437a-e839-459c-b436-163e3db1335b" class="">The rest of this lesson will walk you through use cases for Analysis Types available within StreetLight InSight®.</p><p id="86d7de88-c52f-46d3-8ad6-420f9d3a9d19" class=""><strong>Not all modes and analyses are available for all subscriptions. Check with your organization&#x27;s StreetLight administrator if you are not familiar with your subscription or the analyses it includes.</strong></p><p id="bc94b44a-5a94-44f9-bc5d-87391c73b5b9" class="">Numbered divider 1</p><p id="ef303b0f-8258-4d0c-853a-a2175408632f" class=""><strong><strong>Use Case 1: Zone Activity with Home and Work Locations</strong></strong></p><p id="6c8ca178-784a-4cc1-8949-0d755588e05f" class="">The Stark County Regional Planning Commission (SCRPC) contracted a transportation study assessing the viability of infrastructure upgrades to handle an expected growth in tourism to the Football Hall of Fame. Part of the assessment purpose was to find out where people were visiting from.</p><p id="c3f98df0-c67c-403e-9331-1503108fd976" class=""><em>Click on each label below to review this case study.</em></p><p id="07dd8694-d192-4a95-86c9-4907c6c8f3b7" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="24339a7a-2870-44d0-ac0a-16efd85d867b" class="">Planning for anticipated future growth in tourism to the Football Hall of Fame in Canton, OH during Enshrinement Week 2018.</p><figure id="3c145d0c-80ae-4c0f-b298-0196f6ffb485" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/3VHnmok14ISEjbCd_jEQIuion8xrVyLKL.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/3VHnmok14ISEjbCd_jEQIuion8xrVyLKL.jpg"/></a></figure><p id="6d81b0f0-2d6b-4821-a3d6-a29765c6f275" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="3b6fe884-f6a6-41f1-8e4a-91820dfd2986" class="simple-table"><tbody><tr id="58d08974-c9a9-46a1-b0a0-a208485c4c77"><td id="&lt;kA@" class=""><strong>Type of Analysis</strong></td><td id="gMKv" class="">Zone Activity</td></tr><tr id="106075b4-cbbc-42c2-9a55-f3dab7a55bda"><td id="&lt;kA@" class=""><strong>Mode of Travel</strong></td><td id="gMKv" class="">All Vehicles</td></tr><tr id="9165bc0b-55a6-4833-9afe-dcd9e684a4be"><td id="&lt;kA@" class=""><strong>Zones</strong></td><td id="gMKv" class="">Football Hall of Fame, Canton, OHParking lots around the Hall of Fame</td></tr><tr id="e83b4fca-fb31-4a73-b68d-9bfb2a1e646f"><td id="&lt;kA@" class=""><strong>Options</strong></td><td id="gMKv" class="">Home and Work Locations</td></tr></tbody></table><p id="112334c2-f7fb-49ab-8c3e-d32b1c0449d9" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><p id="6b759ba0-3244-4cba-8d23-4465d699761b" class="">Analysts were able to collect the home locations for groups of travelers and discovered the following:</p><ul id="b7cc9bc7-f9dd-4428-b23a-f81ba6f226e5" class="bulleted-list"><li style="list-style-type:disc">Over 50% of visitors were from within 25 miles of the site</li></ul><ul id="f9234375-1a5d-4e04-8466-f032670e909c" class="bulleted-list"><li style="list-style-type:disc">Around 70% of visitors were from within 100 miles of the site</li></ul><p id="2fbd031f-b3a0-4088-855a-c8d25b42b757" class="">Analysts discovered that most parking lots in the area were underutilized during Enshrinement week. This meant that building expensive parking infrastructure was unnecessary. They discovered that a better solution was encouraging visitors to park downtown and utilizing shuttles and pedestrian paths to reach the Hall of Fame.</p><figure id="f29a7644-8807-4470-bf2e-2d2aa5e0d57e" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/25fOKjW_WcgbmPdZ_Q0KuA7qy9RnOrjZm.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/25fOKjW_WcgbmPdZ_Q0KuA7qy9RnOrjZm.jpg"/></a></figure><p id="4e0f74a9-c987-408e-9d66-1463f836111e" class="">Continued</p><p id="cb7abce8-94dd-4fdd-a6e5-424800f9e717" class="">Numbered divider 2</p><p id="1a0f584b-3996-483a-bddc-9e245f169db7" class=""><strong><strong>Use Case 2: Origin-Destination</strong></strong></p><p id="615ed0d1-bdd6-4898-9d04-53e8465beee2" class="">Next, let&#x27;s visit the use case where the Hampton Roads Transportation Planning Organization (HRTPO) wanted to know which highways trucks were using most frequently, in order to support project prioritization, ongoing studies, and federal funding applications. One of their analysis requirements was to avoid driver surveys due to low response rates with unreliable responses.</p><p id="aa01d250-39ac-438a-8297-1138c1ba88ac" class=""><em>Click on each label below to review this case study.</em></p><p id="c36283d8-f5fc-40d5-876d-6d5ef7e060ae" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="bc6d5f75-8ca9-4c47-bb94-6a8b250a5da5" class="">Assessing traffic activity and exit points from the Port of Virginia for trucks.</p><figure id="768986f7-7ff1-445b-8cd9-746a9b7df728" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/XcJOAsmLBpUI3rDg_x6AvLHdr7a67bKhw.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/XcJOAsmLBpUI3rDg_x6AvLHdr7a67bKhw.jpg"/></a></figure><p id="ec9979ee-7dae-404e-9850-75a50c504b0b" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="e25fdd0f-c995-40c8-a73e-3f98c38d40a0" class="simple-table"><tbody><tr id="5ca01533-64e7-45ea-af22-98ec9afd060f"><td id="U[sn" class=""><strong>Type of Analysis</strong></td><td id="rmm=" class="">Origin-Destination</td></tr><tr id="0d4751f7-4ed4-4250-b678-c6c299d20b6c"><td id="U[sn" class=""><strong>Mode of Travel</strong></td><td id="rmm=" class="">Truck</td></tr><tr id="b80d5f04-0b96-4e5d-9530-a17a7aad9d7e"><td id="U[sn" class=""><strong>Zones</strong></td><td id="rmm=" class="">Origin: Port of Virginia&#x27;s International TerminalsDestination: Exit points to main highways from the Port of Virginia</td></tr></tbody></table><p id="d26be716-5fb6-4264-8383-bd8c862fef2d" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><p id="0a06ef1d-9c71-4d60-a142-9c0d96d44389" class="">Analysts discovered the following:</p><ul id="9d931bb8-220c-43f7-862e-2cc64fb200d4" class="bulleted-list"><li style="list-style-type:disc">91% of truck trips originated at 2 international terminals</li></ul><ul id="4ad9650d-ec83-4600-a751-2d9e258ffef1" class="bulleted-list"><li style="list-style-type:disc">Trucks used I-64 57% of the time when leaving the Port</li></ul><p id="f6f0367a-52c0-48db-8b3d-a966c7241758" class="">This allowed HRTPO to figure out better plans for port access for trucks and to prioritize future projects.</p><figure id="bc3a60d7-6f55-42ba-9f5f-e03a6ac2fc25" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/Z85dgNCMzEYSMyX7_YWSamUEjAqH3KQjH.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/Z85dgNCMzEYSMyX7_YWSamUEjAqH3KQjH.jpg"/></a></figure><p id="a8b87789-2a24-429b-8386-b03a862c9048" class="">Continued</p><p id="f5d256d8-4e74-4edc-b678-c4e016142d5d" class="">Numbered divider 3</p><p id="86fdcde3-589f-41c8-8bd0-aeef308c56a6" class=""><strong><strong>Use Case 3: Origin-Destination with Middle Filter</strong></strong></p><p id="3cd8aa84-78cc-402a-b852-af2122d53445" class="">The City of Lafayette, CA contracted with an engineering firm to understand the congestion rates of their area and how this congestion impacted their downtown.</p><p id="3081faa6-7c6c-4c5d-92c6-108eed13f799" class=""><em>Click on each label below to review this case study.</em></p><p id="e7d72245-8636-40ea-a8a3-4ab79f0d9885" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="c8490265-2cdf-4805-93fa-473f4babfdfc" class="">Lafayette, CA wanted to understand the source of traffic going through the city as well as where it exited to better understand congestion times and areas.</p><figure id="9c93d20b-8644-4a55-b363-84e184df1e43" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/K7OpY2sk5AKdoKr__4Vqv19S0eLtscOfn.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/K7OpY2sk5AKdoKr__4Vqv19S0eLtscOfn.jpg"/></a></figure><p id="9b60189d-4717-436c-8488-f723fb8129b8" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="1f95eb11-b523-471d-8666-b4c4280ea79d" class="simple-table"><tbody><tr id="b6c00881-b5c3-4432-9a0e-14b49f11a058"><td id="O:qe" class=""><strong>Type of Analysis</strong></td><td id="ZMvQ" class="">Origin - Destination with Middle Filter</td></tr><tr id="304fbc5e-3a90-4f81-932a-fed3baf38d9e"><td id="O:qe" class=""><strong>Mode of Travel</strong></td><td id="ZMvQ" class="">All Vehicles</td></tr><tr id="0079ebe0-c103-4d76-89ad-939a401e87df"><td id="O:qe" class=""><strong>Zones</strong></td><td id="ZMvQ" class="">Origin: Entry and exit points around the downtownMiddle Filter: LafayetteDestination: Entry and exit points around the downtown</td></tr></tbody></table><p id="81f3f868-2252-4121-8f28-378be2487a8b" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><ul id="d2ed21e8-1549-4a87-b9b4-bdd3bbb73caf" class="bulleted-list"><li style="list-style-type:disc">39% of trips taking place outside of downtown Lafayette used Moraga Rd.</li></ul><ul id="e1878c58-6d66-4b69-8d76-a611f5b0f294" class="bulleted-list"><li style="list-style-type:disc">60% of Moraga Rd. trips continued on to either SR24 West or to Mount Diablo Blvd.</li></ul><ul id="d3c244f7-9882-4e36-9911-39520064897c" class="bulleted-list"><li style="list-style-type:disc">70% of trips entering downtown Lafayette used SR24</li></ul><p id="5fbbb44c-5992-4527-a5ae-86be991df873" class="">Lafayette discovered where significant portions of traffic flow were taking place with a full understanding of trip origins and destinations during peak congestion times. The city was then able to communicate travel patterns and calibrate their traffic simulation models for analyzing future conditions.</p><figure id="07437c51-c6c1-4a49-8eeb-a8df3e419289" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/Qrq8H_PLrbs7YBAL_pifDrAZsY3MnhWNK.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/Qrq8H_PLrbs7YBAL_pifDrAZsY3MnhWNK.jpg"/></a></figure><p id="a1b10d93-2fd2-4290-a68d-976aacb97c94" class="">Continued</p><p id="26843cf9-376a-493a-9123-208da93da18e" class="">Numbered divider 4</p><p id="8910f722-eb79-4bb8-b028-b968c27067a6" class=""><strong><strong>Use Case 4: Trips to or from a Pre-Set Geography</strong></strong></p><p id="a1752e73-f8dd-499b-b57e-13fa710333e4" class="">The city of Los Angeles partnered with an engineering group to determine whether or not to approve proposed infrastructure to support bicycle commutes.</p><p id="0126f403-fa3c-49a4-84bf-6ced122b6966" class=""><em>Click on each label below to review this case study.</em></p><p id="6d412df7-84ee-458e-be06-35422c6865cc" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="376788dd-d847-4b34-9724-d83c8300b3e9" class="">Estimate the potential bicycle demand to and from target zones in and around the Los Angeles area.</p><figure id="66a487de-660a-4b3d-87be-5e54e571dd5f" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/Xvq0xB5NdKY_iWL5_Ont_bZ5hbFaRIyQ_.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/Xvq0xB5NdKY_iWL5_Ont_bZ5hbFaRIyQ_.jpg"/></a></figure><p id="f87c9bff-fc18-4f07-9027-f441d1a050f9" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="143a904b-31e1-44a9-8312-c8379d40880d" class="simple-table"><tbody><tr id="f61fa4f6-3c39-4ec1-9ff0-b4f5a9f7f20c"><td id="Cn}N" class=""><strong>Type of Analysis</strong></td><td id="XZ_Q" class="">Trips to or from a Pre-Set Geography</td></tr><tr id="a436654e-f9c2-49f5-8e90-a20e8e6660b8"><td id="Cn}N" class=""><strong>Mode of Travel</strong></td><td id="XZ_Q" class="">Bicycle</td></tr><tr id="ae93eb45-2ae9-43bc-8302-db9a0a41e348"><td id="Cn}N" class=""><strong>Zones</strong></td><td id="XZ_Q" class="">Los Angeles ZIP codes</td></tr><tr id="4787c597-789d-4d3e-a60c-4213451309fe"><td id="Cn}N" class=""><strong>Options</strong></td><td id="XZ_Q" class="">Traveler Attributes</td></tr></tbody></table><p id="8f8de3b8-edbb-4f25-86e6-47959523dad9" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><ul id="10e4fc52-84bc-40ee-a53b-9c58ad6d4728" class="bulleted-list"><li style="list-style-type:disc">A key distance range was discovered from Los Angeles to certain ZIP codes</li></ul><ul id="e4f50e38-bd49-4a0e-80b6-fdd8ff98b8e2" class="bulleted-list"><li style="list-style-type:disc">A large portion of cyclists were lower income travelers and people of color</li></ul><p id="6e9a1c04-1a61-4385-a043-5a6ba29ebb72" class="">This information confirmed the need for proposed infrastructure upgrades and new bicycle infrastructure to provide safer and more direct routes for cyclists across strategic transit points. Findings also showed that biking initiatives would contribute to the district’s social equity initiatives and goals.</p><figure id="fa6f5c66-f361-4115-953b-245d8470f8c3" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/95A3M7XcpNuiUXvx_kuAdxYbjeshyWikR.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/95A3M7XcpNuiUXvx_kuAdxYbjeshyWikR.jpg"/></a></figure><p id="fe0f65be-dafa-4ff6-9fc7-03b079e4bb85" class="">StreetLight gave us the advantage of learning what has happened recently and what&#x27;s happening now to make decisions for what is happening next.Sarah Jenniges</p><p id="8914e267-2a6c-4060-b361-a51dfaab42cd" class="">Continued</p><p id="9930df2f-ddf4-4224-9932-ef4e1a0c5082" class="">Numbered divider 5</p><p id="55a0ab5d-be99-4885-8153-fa275b905ea9" class=""><strong><strong>Use Case 5: Top Routes for Zones</strong></strong></p><p id="2942cc26-ffe8-48ab-9e0b-972dba2edc43" class="">Elected officials in the West Los Angeles region were debating congestion pricing policies as a traffic reduction measure as well as to assess detour options and their potential side effects for neighborhood streets. The emergent idea was to analyze traffic in and about the West Los Angeles area to specific destination points - one being an entranceway to the I-405 using Top Routes in StreetLight InSight®.</p><p id="ceba3cff-c851-4b4e-b850-c1d33707c80b" class=""><em>Click on each label below to review this case study.</em></p><p id="798ee4b7-c5ed-4f7c-a9cc-ce989c85864e" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="286aa700-1159-405f-a786-318f2cafd277" class="">Assessing traffic patterns before and after route restrictions and roadway changes to get to the</p><p id="cf2f9d85-5d14-41a9-8610-0d0b27f62830" class="">I-405 entranceway.</p><figure id="6b3fc883-34b0-4852-ac29-fb77f33375d5" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/u_u_e-XzMuZQ_F5i_P7fIK9zi1AfUIq7i.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/u_u_e-XzMuZQ_F5i_P7fIK9zi1AfUIq7i.jpg"/></a></figure><p id="6e2ce92d-44a7-4504-86a0-2c4f276faba3" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="405ea0f0-0e72-4997-809d-27dcb26bd47b" class="simple-table"><tbody><tr id="1af71519-cbb0-4dd3-94ed-661bbd19ce11"><td id="Dum|" class=""><strong>Type of Analysis</strong></td><td id="C\W\" class="">Top Routes for Zones</td></tr><tr id="ce2fa89f-00a2-4a2b-957e-edc3bc59cedd"><td id="Dum|" class=""><strong>Mode of Travel</strong></td><td id="C\W\" class="">All Vehicles</td></tr><tr id="0786ec63-1ef9-4971-87ae-83d027972c66"><td id="Dum|" class=""><strong>Zones</strong></td><td id="C\W\" class="">Gate on I-405</td></tr></tbody></table><p id="f041471f-e41e-4373-a696-6a85bcfe5f2c" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><ul id="4d929fe2-e8be-4353-9e8c-cb8dfd49d41c" class="bulleted-list"><li style="list-style-type:disc">Only 41.5% of trips use main roads to get to I-405</li></ul><ul id="2f392726-1850-4b0e-a81e-9341341c8cf0" class="bulleted-list"><li style="list-style-type:disc">59.5% of trips cut through neighborhoods to get to I-405</li></ul><p id="d5c5e6ab-9cab-4397-bad9-2fcf9129934c" class="">Understanding these traffic flows and volumes allowed officials to determine that major detours from the main roads to other roads would have limited success given that the neighborhood roads were already congested.</p><figure id="e54effd0-421a-4fec-a376-8d4cb29ceb18" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/WWkTgA7iizM6Va4d_5nG540T-2vhVxG9r.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/WWkTgA7iizM6Va4d_5nG540T-2vhVxG9r.jpg"/></a></figure><p id="fc514774-82f8-466f-aee1-cb38b4617f32" class="">Continued</p><p id="6d5f5a1e-0c51-4854-9757-fb74dba76e06" class="">Numbered divider 6</p><p id="290fac08-3b63-430b-a5f9-a37fcfd9bb4e" class=""><strong><strong>Use Case 6: Top Routes between Origins and Destinations</strong></strong></p><p id="72369ceb-cc4b-4e0d-ade1-5f65b0fcfe0b" class="">Officials in Butte County, CA were charged with examining evacuation scenarios and employed StreetLight InSight® to help them with emergency response planning to redirect traffic from the county, either North to Redding, or South to Sacramento.</p><p id="2dc384ff-db79-47d0-b9c3-bcc0d80d0ee7" class=""><em>Click on each label below to review this case study.</em></p><p id="2918d223-e26f-4e18-bb04-d9ddff6fd602" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="016ff4e8-eaac-483b-84a6-8ef1eff389d0" class="">Assessing most frequently used routes in California from Chico North to Redding and from Chico South to Sacramento to assess congestion during evacuation scenarios.</p><figure id="69655aa0-85db-49d6-b41e-c4cffaddfc4b" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/7Y8A6kZI22BzzIZC_mhGprgAMctCHcW5c.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/7Y8A6kZI22BzzIZC_mhGprgAMctCHcW5c.jpg"/></a></figure><p id="e318ea76-1a99-4e82-9040-bf7fa4b1ede6" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="cbbc3a77-0586-4db7-b6bf-e86126564f0f" class="simple-table"><tbody><tr id="6df7a400-1ec9-4720-ad56-b104794c7559"><td id="zUDC" class=""><strong>Type of Analysis</strong></td><td id="v_az" class="">Top Routes between Origins and Destinations</td></tr><tr id="c21d349e-0b77-46d3-9b19-fa97b5677157"><td id="zUDC" class=""><strong>Mode of Travel</strong></td><td id="v_az" class="">All Vehicles</td></tr><tr id="2d57f5c4-b24c-4642-93b7-69645b4a2778"><td id="zUDC" class=""><strong>Zones</strong></td><td id="v_az" class="">Origin: Chico, CADestination: Redding, CA &amp; Sacramento, CA</td></tr></tbody></table><p id="5b125514-4e1e-48be-ab64-cbd6ff3a982b" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><ul id="716d4791-1959-4846-bc00-fbf5e47a8ab3" class="bulleted-list"><li style="list-style-type:disc">Heavily congested routes were identified, which would require prompt and effective traffic clearance during an evacuation.</li></ul><p id="33958ae3-6e0a-4f62-8515-07c7a592626d" class="">By using Top Routes between Origins and Destinations, county officials were able to determine the density of trips on road segments and provide data-driven alternative routes during an evacuation (for example, during a wildfire) to avoid putting more pressure on already congested routes.</p><figure id="5ef1a717-8c4d-4db8-b21c-e237abf98716" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/e3woISkeOS9t06zq_H2ePt726QPUfy4eC.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/e3woISkeOS9t06zq_H2ePt726QPUfy4eC.jpg"/></a></figure><p id="cd4a7e2b-d3b2-4f97-b779-63d9ec8d9df8" class="">Continued</p><p id="b65cee7d-e4c6-4c07-b0e8-ce17a799c17e" class="">Numbered divider 7</p><p id="7868fd37-aba0-4d77-b958-95a103819a2b" class=""><strong><strong>Use Case 7: Segment Analysis</strong></strong></p><p id="75748118-7ced-4301-b10a-5d5046333c88" class="">In an effort to assess their Split Cycle Offset Optimization Technique (SCOOT), an adaptive traffic signal control system meant to optimize traffic flow, Siemens used StreetLight InSight® to run a before and after corridor study to see the effects of the new technology on traffic before and after installation on the road.</p><p id="a6b44360-81fd-404f-afbb-dd64ccbc3dde" class=""><em>Click on each label below to review this case study.</em></p><p id="1044eba2-0bcf-4e80-a9dd-bc8b7fff163b" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="79c4ced8-3061-4f35-a795-31eb83201098" class="">Assessing technology designed to adjust the timing of traffic lights in response to real-time travel patterns.</p><figure id="654e1b57-57fa-4cca-900d-cd1292914416" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/jrtiHtJaxBKaAQrB_BKgzwvOyyYbibOLi.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/jrtiHtJaxBKaAQrB_BKgzwvOyyYbibOLi.jpg"/></a></figure><p id="9d510f9a-ab15-49b7-9fb6-4ac867da221d" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="797153f1-c141-4088-9f21-31811ef7b422" class="simple-table"><tbody><tr id="4256224e-f2d3-4f0e-a065-dc7895c34e69"><td id=":lD_" class=""><strong>Type of Analysis</strong></td><td id="WRme" class="">Segment Analysis</td></tr><tr id="0760abf2-a356-4130-be98-bee7c92cfa02"><td id=":lD_" class=""><strong>Mode of Travel</strong></td><td id="WRme" class="">All Vehicles</td></tr><tr id="2e69937a-f401-4484-876b-647e7bf82021"><td id=":lD_" class=""><strong>Zones</strong></td><td id="WRme" class="">Line Zone - East Ellsworth Rd.</td></tr></tbody></table><p id="28c9b073-036f-4b63-9341-67b13f335157" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><ul id="b3d5357c-7411-446e-be35-18ff5170b2e6" class="bulleted-list"><li style="list-style-type:disc">Overall traffic times improved by 10% - 20%</li></ul><ul id="93d26f4c-f95c-4ac6-8c88-61f5155cc1ae" class="bulleted-list"><li style="list-style-type:disc">Weekday trips took 12% less time to travel the corridor</li></ul><ul id="f53b9d10-16ab-4d4c-a18a-2d4a9c900be0" class="bulleted-list"><li style="list-style-type:disc">Weekend trips took 21% less time to travel the corridor</li></ul><ul id="41b4f982-19dc-4d89-9c50-376348b4a60e" class="bulleted-list"><li style="list-style-type:disc">Post SCOOT, a driver&#x27;s chance of completing the corridor drive in 3 minutes jumped from 15% to 70%</li></ul><p id="8462f89e-5595-4139-a98b-de4c6e4f7bd1" class="">Siemens was able to measure the value of their SCOOT system. The analysis showed a major drop in congestion along the corridor post SCOOT installation. The performance study helped city officials advocate for the adaptive traffic signal control system.</p><figure id="c02358a6-d340-4481-a26b-50f92ff0d13b" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/9qJ5OSNyfYkKda7f_sMLoSH2fVoD-jGte.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/9qJ5OSNyfYkKda7f_sMLoSH2fVoD-jGte.jpg"/></a></figure><p id="c3638254-b8ed-4fa3-9353-18cedb799e41" class="">Continued</p><p id="4d2f5629-aef5-4321-a2e9-1beb5971deec" class="">Numbered divider 8</p><p id="40ef94fa-2091-4e1c-8996-8d5d67a678a0" class=""><strong><strong>Use Case 8: Annual Average Daily Traffic</strong></strong></p><p id="09376e2e-3373-43ed-a8fd-064f320878f4" class="">Due to high costs, the Indian Nations Council of Governments (INCOG) ceased collecting AADT data resulting in gaps in a public data repository. INCOG needed an alternative method for collecting this data. They used StreetLight InSight® to run a validation study using their own zones to verify the StreetLight InSight® output as an alternative data source.</p><p id="fe98fd14-219f-4a29-969f-e3ebffe5b916" class=""><em>Click on each label below to review this case study.</em></p><p id="fbefb1c7-3b68-480c-abb8-ad8da01b5f4e" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="331e5bde-b8ea-4deb-800a-2ac3c06863cb" class="">Utilize alternative means to expensive and resource-intensive traditional methods for gathering valuable public transportation data.</p><figure id="7720f97d-c2e3-4046-a8e9-4c403e467344" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/O3oMprX09LaPYYT3_F2KIzYsmTiT_QjxH.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/O3oMprX09LaPYYT3_F2KIzYsmTiT_QjxH.jpg"/></a></figure><p id="46a813e8-90bb-463f-a16d-ddc8234ba6ba" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="fc0ecc26-e706-4958-90f9-7e5a458d9dec" class="simple-table"><tbody><tr id="4d9665f9-63fa-4821-90cf-8a16676291b6"><td id="Tj|O" class=""><strong>Type of Analysis</strong></td><td id="f[rl" class="">Average Annual Daily Traffic (AADT)</td></tr><tr id="3d7fa57b-cf91-428c-88db-324d88f5783e"><td id="Tj|O" class=""><strong>Mode of Travel</strong></td><td id="f[rl" class="">All Vehicles</td></tr><tr id="5eb75997-4b22-4dd8-8bed-e6daa81d1850"><td id="Tj|O" class=""><strong>Zones</strong></td><td id="f[rl" class="">2500+ zones provided by INCOG</td></tr></tbody></table><p id="8a7dedcb-6adb-42bf-a076-4ba6497bcbc7" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><ul id="94a3b805-4cee-4932-a08d-2b215d071d8c" class="bulleted-list"><li style="list-style-type:disc">Validation showed that only 2% of the 2500+ zones analyzed had an error rate greater than 75%</li></ul><p id="407ac778-a0bc-4beb-9b70-860bf216b9af" class="">Validation work on StreetLight InSight® Metrics convinced INCOG of the quality of the metrics. Compared to real-count validation data sets, StreetLight results demonstrated a very low error rate.   INCOG was able to refresh their data repository with AADT counts using StreetLight InSight®.</p><figure id="e294ba9b-4823-47cb-ada5-19423d109bbb" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/T4SnhysiGB3z_FuN_BCrpiO3B3YjxH74f.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/T4SnhysiGB3z_FuN_BCrpiO3B3YjxH74f.jpg"/></a></figure><p id="566ebac2-c305-4174-ba23-d6495d227adc" class="">Numbered divider 9</p><p id="1f4e56eb-9d85-4653-98e1-56397a393e6f" class=""><strong><strong>Use Case 9: Roadway Volume</strong></strong></p><p id="f2c48ffa-5e9d-47fa-89ef-cbb89dbba099" class="">The City of Cleveland would like to calculate AADT for all roads within their municipal boundary in a quick and cost effective manner.</p><p id="35692cc5-bc4b-4764-96c0-17aa95b7e9c9" class=""><em>Click on each label below to review this case study.</em></p><p id="be67dc52-6df3-4380-bfc8-cf2c693dcb73" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="af0c3b05-4545-4c49-9360-ff2b67d7c2ce" class="">Utilize alternative means to expensive and resource-intensive traditional methods for gathering valuable public transportation data.</p><figure id="2a2f39aa-15c4-415d-9922-1cd81244f49f" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/qEiulQBWP7-9itbP_rU0CgDzPdMoCzsNR.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/qEiulQBWP7-9itbP_rU0CgDzPdMoCzsNR.jpg"/></a></figure><p id="1ce73c40-7272-4af1-98d6-42a127bc036e" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="a1e1b32f-6c71-40ae-899b-a604255ec19f" class="simple-table"><tbody><tr id="1e8ed823-8eff-4899-af22-475d010364c7"><td id="pX&lt;J" class=""><strong>Type of Analysis</strong></td><td id="&lt;PYQ" class="">Roadway Volume QuickView</td></tr><tr id="dba316da-9fc3-465a-9d1d-aba49bbed455"><td id="pX&lt;J" class=""><strong>Mode of Travel</strong></td><td id="&lt;PYQ" class="">All Vehicles</td></tr><tr id="b6493e94-a105-437c-b438-d38dfd345fa2"><td id="pX&lt;J" class=""><strong>Zones</strong></td><td id="&lt;PYQ" class="">4835 Line Zones within the City of Cleveland</td></tr></tbody></table><p id="638eef66-7e51-4497-bbeb-306323834234" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><ul id="eb5088fb-c5a9-4fcd-a98e-c5fb79704f96" class="bulleted-list"><li style="list-style-type:disc">The busiest stretch of road in Cleveland is the I-90, Northwest Freeway corridor between W. 159th St. and W. 25th St. with a length-weighted average AADT of 52,256</li></ul><p id="4172383d-a66f-4e2c-a832-217109921693" class="">Within minutes, the City of Cleveland was able to select all 4835 roads within their municipal boundary and calculate their AADT metrics. They could see the length-weighted average AADT for roadways (grouped segments sharing a certain criteria) as well as AADT for individual segments throughout Cleveland.</p><figure id="3431c66c-253f-47fb-b520-556fa4bb2852" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/3DwY0yvkvJh7tGs8_uJ78ZGMpZzgQlZmZ.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/3DwY0yvkvJh7tGs8_uJ78ZGMpZzgQlZmZ.jpg"/></a></figure><p id="35453316-4515-4d10-b799-60bb8a3738c6" class=""><strong><strong>Use Case 10: Congestion Management QuickView</strong></strong></p><p id="84216e1d-0715-4890-942f-638dbbc25f7d" class="">The City of Cleveland seeks to gain deeper insights into areas of higher traffic congestion within its city boundaries. Furthermore, the city requires an accurate assessment of Vehicle Miles Traveled (VMT) to better understand the overall transportation patterns.</p><p id="bc250aea-8ef4-41bf-a0cc-b1e14d7a2cfe" class=""><em>Click on each label below to review this case study.</em></p><p id="d8ee2a42-9d12-44be-af87-a7d2b9719f0f" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="ac72770a-9704-4a3e-80ec-8c7c8d584503" class="">Quickly analyze over 3700 zones within the city boundary of Cleveland, Ohio for reliability metrics.</p><figure id="a32fae84-0340-4dff-879f-16677318ec48" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/kMPof4dLFlAbNaqs_JCwma7WFGOhUYYLd.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/kMPof4dLFlAbNaqs_JCwma7WFGOhUYYLd.jpg"/></a></figure><p id="b4c6c5df-7f14-4b20-add4-a4899d46636c" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="e1196236-6d94-4538-9682-dd96c9ebf2f3" class="simple-table"><tbody><tr id="e9cba32b-f238-4ca9-b2c0-3d23d1dc3edf"><td id="Tk&lt;R" class=""><strong>Type of Analysis</strong></td><td id="eJ=y" class="">Congestion Management QuickView</td></tr><tr id="dec2d58b-1c8b-437e-b138-7f7e083ba3ea"><td id="Tk&lt;R" class=""><strong>Mode of Travel</strong></td><td id="eJ=y" class="">All Vehicles CVD+</td></tr><tr id="4249b9d0-b086-4aba-a2f7-c29025b0414f"><td id="Tk&lt;R" class=""><strong>Zones</strong></td><td id="eJ=y" class="">City Boundary of the City of Cleveland</td></tr></tbody></table><p id="2d78c5e7-4f66-4d1d-9f8b-65e9fc30c5ab" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><p id="b70d9518-3960-4217-8b89-9d1f1dcbb5db" class="">Once the analysis completes running the City of Cleveland is able to visualize congestion metrics for over 3,000 roads. They are able to filter by road type, time of day and day types. They can also compare custom areas and corridors.</p><figure id="b60e1644-26b6-40f9-a53c-fe8083ca5684" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/Tv54F65GAhuCZrOv_WHbbSAe4wNwvd2Kl.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/Tv54F65GAhuCZrOv_WHbbSAe4wNwvd2Kl.jpg"/></a></figure><p id="8796908c-142a-4bcb-a668-8a13f40a56d2" class=""><strong><strong>Use Case 11: Turning Movement Counts</strong></strong></p><p id="0782f759-34fd-468d-ba16-bcbb8bfe37b3" class="">Temecula, California had a traffic challenge where they needed to better coordinate traffic signals for safer streets and improving commute time. Engineers needed to understand the causes of slowdowns and where they were occurring.</p><p id="e761ee42-4b28-4e22-b63e-cf218f8dfe2a" class=""><em>Click on each label below to review this case study.</em></p><p id="bff389a2-be49-4926-8b83-84e21bf11272" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="d88eccca-26e1-4426-ab00-e4b1b7910141" class="">Temecula needed to gather pre pandemic, historical data on over 40 intersections in a fast and efficient way.</p><figure id="b2bbd5d3-d2e3-424c-a528-c92fb7702c15" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/7WqFoecaTMmXgMNn_HvA_E-AlqR1E_sfh.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/7WqFoecaTMmXgMNn_HvA_E-AlqR1E_sfh.jpg"/></a></figure><p id="419026de-293d-47c2-ba07-ac8398a9a0f6" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="edda9d77-1ede-4786-87bc-7d4965b7024c" class="simple-table"><tbody><tr id="0c54efc0-72d7-4e6d-be78-35859463f75d"><td id="MeDc" class="">Type of Analysis</td><td id="a]D&lt;" class="">Turning Movement Counts</td></tr><tr id="da40c17f-24f1-46ab-b0ef-d97f354867d3"><td id="MeDc" class="">Mode of Travel</td><td id="a]D&lt;" class="">All Vehicles LBS+</td></tr><tr id="02cc6867-7afb-4bc0-8de9-84b0db27db49"><td id="MeDc" class="">Zones</td><td id="a]D&lt;" class="">Custom Intersection Gates</td></tr></tbody></table><p id="260a1fd2-fb81-4e67-9e91-e68f24e7aa03" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><p id="974403cf-c04f-47b9-a2a1-3f33d58bc4c8" class="">The city was able to create a precise signal retiming plan at a fraction of the cost.</p><p id="d5d023d8-06bd-498a-aad5-7dfb3536c82d" class="">In one day the city was able to analyze over 40 intersections and understand how city residents vs. weekend travelers impacted traffic flows.</p><figure id="3d2c8509-790e-4b68-9dbd-d9dc098702a2" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/vzBvfQUsXmZyScHj_gJ9RRpr5tdfmUt5N.png"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/vzBvfQUsXmZyScHj_gJ9RRpr5tdfmUt5N.png"/></a></figure><p id="bfe16f51-1c20-4539-81fc-1f918c33e297" class="">Continued</p><p id="49348b8f-6f7a-4547-8695-8288a6171eff" class=""><strong><strong>Use Case 12: Network Performance Analysis</strong></strong></p><p id="b95d727b-1928-4420-9274-f26adcbae69e" class="">The City of Cleveland wants to quickly calculate key transportation metrics for a road network in its region.</p><p id="3bad93de-fceb-4179-b90f-1aa43215ad12" class=""><em>Click on each label below to review this case study.</em></p><p id="484f631c-ae45-4246-b32d-19ecc9975816" class=""><strong><strong>Challenge<br/>–<br/></strong></strong></p><p id="0320f0de-9591-443f-ae0b-67103748da58" class="">In order to meet an encroaching deadline, Cleveland needs to quickly estimate a range of traffic metrics including the volume count and congestion rate for trips along the Chester Ave. corridor.</p><figure id="2bd43ef7-1f0c-4e80-b6d5-bc485db85680" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/7WqFoecaTMmXgMNn_HvA_E-AlqR1E_sfh.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/3n36a8dzhmkw2/scormcontent/assets/7WqFoecaTMmXgMNn_HvA_E-AlqR1E_sfh.jpg"/></a></figure><p id="8f71cc61-7eea-4ffd-8422-8511a56b715d" class=""><strong><strong>StreetLight Solution<br/>–<br/></strong></strong></p><table id="f013a927-f09b-4457-9c5a-ae6ed6f67149" class="simple-table"><tbody><tr id="fe41c37c-f476-4fb3-9b27-1c163f63eae6"><td id="E@wM" class="">Type of Analysis</td><td id="&gt;i;U" class="">Network Performance</td></tr><tr id="2cde87c2-60f2-42a1-9e7b-52808398ceaa"><td id="E@wM" class="">Mode of Travel</td><td id="&gt;i;U" class="">Aggregated GPS Data (vehicular)</td></tr><tr id="3c365cf5-fe3a-492e-9203-cd47d1794b69"><td id="E@wM" class="">Zones</td><td id="&gt;i;U" class="">Zone Library line zones</td></tr></tbody></table><p id="85b7a41b-33ab-46a5-a0cd-27a771d0c2a6" class=""><strong><strong>Key Findings<br/>–<br/></strong></strong></p><p id="7db88a6d-c70f-4a65-b520-f4fb5037d9b4" class="">Cleveland discovered that approximately 15,000 eastbound vehicular trips take place along a key stretch of Chester Ave. and that around seven percent of those trips experience congestion related conditions.</p><p id="5c11ace0-7a38-4d0d-9cdf-299c2d67ded8" class="">
+</p><figure id="787614c7-33e1-444d-90f9-4a4c991a7fa9" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2018.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2018.png"/></a></figure><figure id="411a6943-2b92-4f2b-b745-97bdcf319cb8" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/1ioxxb71tirq2/scormcontent/assets/uRDCvi3oUeZvfRwJ_LSX_xbAMxfMgoK7u.png"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/1ioxxb71tirq2/scormcontent/assets/uRDCvi3oUeZvfRwJ_LSX_xbAMxfMgoK7u.png"/></a></figure><p id="775869b2-4393-4000-b04f-f95ac7f99422" class="">
+</p><p id="533c2f60-5791-4ac3-9040-4a736ffcf5c8" class="">Connected Vehicle Data (CVD) comes from “smart” vehicles. Smart Vehicles are Original Equipment Manufacturer (OEM) enabled with connected data. The data collected includes various diagnostic, safety, and location events which are provided to the OEM - these vehicles provide pings, just like the mobile devices underlying our Location-based Services (LBS) data.</p><figure id="d9e42a42-f1ad-4bb9-bdf0-e6bbdac30469" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/2wfhvw7v9ps4a/scormcontent/assets/5NP6NxTxWk7bDkTG_wAbNF090_5HVSoYQ.jpg"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/2wfhvw7v9ps4a/scormcontent/assets/5NP6NxTxWk7bDkTG_wAbNF090_5HVSoYQ.jpg"/></a></figure><p id="a50f8a9d-1654-4860-99a7-8545b18b5a96" class=""><strong><strong>Data Availability<br/>–<br/></strong></strong></p><p id="a3229e16-47a9-45f8-88ce-f7d1558fa988" class=""><strong>Historical Data - April 2022</strong></p><p id="c7f2fa4c-6ed4-4c12-8418-6c40ef2f9c95" class=""><strong>All Vehicles LBS+ Metrics</strong></p><p id="ee793efa-7f83-4424-8c0b-395e6e9280c8" class="">Segment Analysis</p><p id="98a7061c-2df5-4dc9-b04d-23489ece6c17" class="">Zone Activity</p><p id="f35fcd29-68cc-4efd-85c9-0888d87b39a9" class="">Origin - Destination</p><p id="77b3cc95-972d-4f9d-afbf-bcddc39f8e24" class="">Trip Attributes</p><p id="cc653cd6-2f4d-4cba-9f92-8f13644c740b" class="">Traveler Attributes</p><p id="4fe4dbd1-6a54-4402-ae14-42610dc778fe" class="">Top Routes</p><p id="de20ed51-0c57-49b9-be21-8c61bb274385" class="">TMC</p><p id="1977b616-632d-4f4d-92b3-8d71e5957bac" class="">and more...</p><p id="5363f4b1-a6cf-4180-a3c0-b53f41acbc6f" class=""><strong>Beginning May 2022</strong></p><p id="456eb39d-f3ba-41dc-bbb9-b22535a574d9" class=""><strong>All Vehicles CVD+ Metrics</strong></p><p id="4c640375-0171-4a2b-8ba8-b45e526aa5db" class="">Segment Analysis</p><p id="0795f24a-7502-4cd1-bd42-e9b0f72ae9f6" class="">Zone Activity</p><p id="81c5ebbb-0f53-4bfa-99b6-17c29a25584f" class="">Origin - Destination</p><p id="31c5a2cf-389d-426d-96f5-aef005548115" class="">Origin - Destination through Middle Filters</p><p id="f8a75cd4-5da8-42fe-a8e6-4241d39fe63f" class="">Turning Movement Counts</p><p id="ff72f479-cd70-43dc-91f5-781dc7242a6d" class="">Top Routes for Zones</p><p id="64a5be31-593f-482b-8cc3-cb99eaf12c5c" class="">Top Routes between Origins and Destinations</p><p id="46293288-1434-4de7-b85d-883378e045a3" class="">Trips to or from Pre-set Geography</p><p id="fd0b587e-c49b-4243-a42a-15c1a5edacce" class="">Trip Attributes (Travel Time, Trip Length, Trip Speed, Trip Circuity)</p><p id="946fd1d6-8eec-43a4-acf3-b27f21629096" class=""><strong><strong>Advantages of Connected Vehicle Data (CVD+)<br/>–<br/></strong></strong></p><ul id="6e7612a5-7ac4-4376-8d50-21d8dd4432b6" class="bulleted-list"><li style="list-style-type:disc">Known vehicle mode (less confusion with fast bicycles or motorcycles)</li></ul><ul id="92828612-ce68-4720-9894-a47e93d87551" class="bulleted-list"><li style="list-style-type:disc">Locational pings are closer together</li></ul><ul id="80ae72b7-0751-4de0-8c22-f668ca4883cb" class="bulleted-list"><li style="list-style-type:disc">Increased accuracy of core network speed, trip length, travel time, and trip circuity results</li></ul><ul id="3f2504c6-2c22-44b3-9a3e-f4fdf382d421" class="bulleted-list"><li style="list-style-type:disc">Better trip locking</li></ul><h1 id="2a9b577d-bec2-463b-97f8-455dc01366bc" class=""><strong>StreetLight All Vehicles CVD+ Methodology</strong></h1><p id="a7da2832-0113-4a9a-a46f-d66a9c1ada5c" class="">Connected Vehicle Data has been integrated into new vehicles for almost a decade and in some cases longer. This technology is being or will be integrated into all new vehicles. Because we get anonymized data we cannot and will not know the precise demographics of vehicle owners.</p><ul id="08fd6521-b6d5-4c6c-8c55-c350756fc2f5" class="bulleted-list"><li style="list-style-type:disc"><strong>Data Sources</strong><p id="27ef4928-ccc3-4822-ba30-7aa8a28093df" class=""><strong><strong>CVD+</strong></strong></p><p id="2086042d-118d-4d95-9d66-a6ccea60d4e9" class="">CVD+ (Connected Vehicle Data) incorporates data from personal vehicles with embedded location technology. CVD does not require mode classification because we know the data is collected from personal vehicles.</p><p id="dca677b8-a046-46f4-83d6-fa52f4fb0fd8" class="">The CVD+ data includes weather and road attributes.</p></li></ul><ul id="d969ef31-e01d-4b1c-977f-4db49738537f" class="bulleted-list"><li style="list-style-type:disc"><strong>Validation</strong><p id="dc2e765b-6e83-4454-9d7f-f5df017b682c" class=""><strong><strong>Ground-Truth Data</strong></strong></p><p id="03f96be5-271d-4b38-9aa0-46b5ee144eb2" class="">The models are trained and validated with permanent counters across The United States (U.S). The CVD+ data utilized 2,785 permanent counters in 22 states.</p></li></ul><ul id="55106611-43ff-4d87-86e9-ba329d18fe60" class="bulleted-list"><li style="list-style-type:disc"><strong>Metrics</strong><p id="4df1c545-2a88-48f6-84f6-a48199472fe4" class=""><strong><strong>Output in Viz3D &amp; Downloads</strong></strong></p><p id="a9326c9c-0eab-48fb-b0a3-86a54aa66d6d" class="">The data collected from Connected Vehicles goes through the Route Science® Processing Engine and is validated against permanent counters, the output is the StreetLight Insight® Metrics.</p></li></ul><h1 id="eed30279-7ecf-443f-8281-2ea99dce8384" class=""><strong>Differences between CVD+ and LBS+</strong></h1><p id="9ed61689-dcf1-4009-83c7-36858c10311c" class=""><strong>Location-based Service (LBS+)</strong></p><ul id="4bb7e009-cea5-469a-bec4-96da12113311" class="bulleted-list"><li style="list-style-type:disc">Data collected from smartphone apps that use opt-in location-based services</li></ul><ul id="8165540c-a3d3-4ef4-a686-7336a017aa4b" class="bulleted-list"><li style="list-style-type:disc">Has a vehicular bias, pings move like a motorized vehicle</li></ul><ul id="5906b497-843b-4181-9e32-2484c2d328b3" class="bulleted-list"><li style="list-style-type:disc">1-2 minute ping rate</li></ul><ul id="e05a6a5b-1c3e-4b86-8a40-19ff8677ccc0" class="bulleted-list"><li style="list-style-type:disc">Output Types: Volume, Index &amp; Single Factor Calibrated Index</li></ul><ul id="61b2e900-380e-4d63-a456-d74e120c17be" class="bulleted-list"><li style="list-style-type:disc">More suitable if you are interested enhanced data e.g., socio-demographics or Home and Work Location (HWL)</li></ul><p id="f2325205-f7b3-4353-ae35-74007a0d3953" class=""><strong>Connected Vehicle Data (CVD+)</strong></p><ul id="65347356-5e63-4454-8873-815bb70f9590" class="bulleted-list"><li style="list-style-type:disc">OEM enabled connected data from “smart” vehicles</li></ul><ul id="3f17707b-199e-4b23-96de-45ea0d804940" class="bulleted-list"><li style="list-style-type:disc">Known travel mode</li></ul><ul id="72fe3036-1a7d-41de-a858-97fbff968e0b" class="bulleted-list"><li style="list-style-type:disc">3 second ping rate</li></ul><ul id="b3f6cc66-f6ac-496f-88ae-81f9cf6e9f3e" class="bulleted-list"><li style="list-style-type:disc">Output Types: All Vehicles Volume</li></ul><ul id="270be10e-3762-4630-9d55-1da43394194e" class="bulleted-list"><li style="list-style-type:disc">Currently no enhanced data e.g., socio-demographics or Home and Work Location (HWL)</li></ul><ul id="d20b4147-725b-4bf1-a649-6db479def869" class="bulleted-list"><li style="list-style-type:disc">Increased accuracy of core network speed, trip length, travel time and trip circuity results</li></ul><h1 id="72d03d5f-d6df-4a14-b0af-b6d66fb2beb9" class=""><strong>Bicycle and Pedestrian Modes of Travel</strong></h1><p id="7d69c1ea-23b9-4388-a036-03a825d6300c" class=""><strong><strong>Bicycle<br/>–<br/></strong></strong></p><ul id="3d9502be-3b3a-4c9c-9965-33fc6b8ae15a" class="bulleted-list"><li style="list-style-type:disc">An estimated number of bicycle trips aggregated over the zones and data period(s) chosen</li></ul><ul id="a259b679-772b-488d-9ed7-75fd4c314746" class="bulleted-list"><li style="list-style-type:disc">Available with the following Analysis Types:<ul id="223328d5-5309-4fdd-958b-5652ea65c589" class="bulleted-list"><li style="list-style-type:circle">Zone Activity</li></ul><ul id="3d4c4901-bbe8-4d7a-814c-c725a00fc9b5" class="bulleted-list"><li style="list-style-type:circle">Origin-Destination</li></ul><ul id="d495c6f7-72b7-456a-898c-c627729df253" class="bulleted-list"><li style="list-style-type:circle">Origin-Destination through Middle Filters</li></ul><ul id="3081bd2e-6a7e-40cb-a76d-db202bfef7af" class="bulleted-list"><li style="list-style-type:circle">Trips to or from Pre-set Geography</li></ul></li></ul><ul id="e09c3a6f-b7a3-4a18-9d76-42449f2f0cc9" class="bulleted-list"><li style="list-style-type:disc">Two Metric Output Types:<ul id="917445ed-03ee-4313-9f75-8a7578a2a6c2" class="bulleted-list"><li style="list-style-type:circle">StreetLight Bicycle Volume (Bicycle Trips)</li></ul><ul id="32d55d46-fc8d-4753-a13a-f9a3459135ee" class="bulleted-list"><li style="list-style-type:circle">Single Factor Calibrated Index using user counts (Bicycle Trips)</li></ul></li></ul><ul id="8bf989f9-2060-464f-a989-cfea5aa548c6" class="bulleted-list"><li style="list-style-type:disc">Metrics are currently available for Data Periods (monthly bins): <strong>January 2019 - April 2022 (US/Canada)</strong></li></ul><ul id="0f6d9dc6-5546-42c7-a18c-8901eb03dea5" class="bulleted-list"><li style="list-style-type:disc">Derived from StreetLight ADT combined with monthly seasonal adjustment factors to produce the latest Volume Metrics every month</li></ul><p id="5af2a1b7-7b24-40f3-a2b8-67b597873866" class=""><strong><strong>Pedestrian<br/>–<br/></strong></strong></p><ul id="aaeb19d3-35f3-4c02-a691-6bc5b434711e" class="bulleted-list"><li style="list-style-type:disc">An estimated number of pedestrian trips aggregated over the zones and data period(s) chosen</li></ul><ul id="6c395584-37aa-419c-8a33-b205aee187de" class="bulleted-list"><li style="list-style-type:disc">Available with the following Analysis Types:<ul id="48c2c6d9-189d-4d0a-947f-209923432113" class="bulleted-list"><li style="list-style-type:circle">Zone Activity</li></ul><ul id="fe063697-d055-4b6c-ac9e-ad0800117578" class="bulleted-list"><li style="list-style-type:circle">Origin-Destination</li></ul><ul id="a6aa9caa-e2fb-48a4-8904-ccf5a53531bd" class="bulleted-list"><li style="list-style-type:circle">Trips to or from Pre-set Geography</li></ul></li></ul><ul id="f8a1d512-9c78-4799-b9a0-a1455fc106a3" class="bulleted-list"><li style="list-style-type:disc">Two Metric Output Types:<ul id="a84ae47e-0622-489b-ba48-b2a85e76ed35" class="bulleted-list"><li style="list-style-type:circle">StreetLight Pedestrian Volume (Pedestrian Trips)</li></ul><ul id="482582b6-e293-4324-a051-28ceea4675a2" class="bulleted-list"><li style="list-style-type:circle">Single Factor Calibrated Index using user counts (Pedestrian Trips)</li></ul></li></ul><ul id="22462437-a904-4aaf-836e-049b2fae5f84" class="bulleted-list"><li style="list-style-type:disc">Metrics are currently available for Data Periods (monthly bins): <strong>January 2019 - April 2022 (US/Canada)</strong></li></ul><ul id="10fa51d7-cf97-4917-88c6-c593f9618824" class="bulleted-list"><li style="list-style-type:disc">Derived from StreetLight ADT combined with monthly seasonal adjustment factors to produce the latest Volume Metrics every month</li></ul><p id="baf84f88-70e5-497c-a270-8c65e7bdc9eb" class="">
+</p><ol type="1" id="1b84a88c-a0aa-49fc-b4c6-9c4b3e5c1207" class="numbered-list" start="1"><li>Traffic Congestion<p id="99e8a42f-455f-4c7d-9030-a1ff1c26f442" class="">Traffic congestion can be defined as the percentage reduction in speed from the Free Flow Speed. StreetLight defines congestion as 1 - Free Flow Factor where the Free Flow Factor is the average Trip Speed divided by the Free Flow Speed</p><p id="2c197bca-c7c1-4c2d-aeae-54ad20755258" class="">
+</p></li></ol><ol type="1" id="921d656c-8d84-4447-a9b0-87039335da49" class="numbered-list" start="2"><li>Free Flow Travel Time<p id="80d76306-cc10-450a-a39d-3e6260c1631f" class="">Free Flow Travel Time is the time required to travel a roadway section under low-volume conditions. It can be considered the “ideal” travel time on a roadway.</p><p id="53c713ca-805f-4835-9691-6f6cd31a7c43" class="">
+</p></li></ol><ol type="1" id="345abe05-32c9-427d-9cfb-87c573a7777c" class="numbered-list" start="3"><li>Percentile Travel Time<p id="64de6c35-5e6e-4d4b-8037-0f67878db665" class="">Percentile Travel Time is a measure of travel duration on a road segment, indicating the time met or exceeded by a certain percentage of trips. For example, the 50th Percentile Travel Time (median) is the time that half of all trips take or less.</p><p id="adad8747-8b82-4af5-b45f-2b7bfb51fa13" class="">
+</p></li></ol><ol type="1" id="1bd7ddb1-f699-49a3-8f40-483adac6dd8a" class="numbered-list" start="4"><li>Planning Time &amp; Planning Time Index<p id="e0bb59f4-c422-412d-bdc8-2a95e96a5b09" class="">Planning Time is defined as the 95th Percentile Travel Time. It is the time required for completing trips ontime 95% of the time.</p><p id="5f558cf5-6692-4e4f-a727-91e041fae31a" class="">Planning Time Index (PTI) normalizes the planning time by dividing it by the “ideal” or Free-Flow Travel Time.</p><p id="bc03ebf3-ba2c-4587-b71e-5ce9ab1ea94b" class="">
+</p></li></ol><ol type="1" id="70ae8a52-dbe4-44ff-adb9-775ade8e58d9" class="numbered-list" start="5"><li>Level of Travel Time Reliability (LOTTR)<p id="09f8fc32-fe8f-451a-87d7-28c5685c12fd" class="">The LOTTR is defined as the 80th-Percentile Travel Time divided by the 50th-Percentile Travel Time. The greater the LOTTR value, the longer travel times are on relatively poor (but not uncommon) travel days, compared to travel times on typical days.</p><p id="19de7c79-9950-4175-b009-86730f9315be" class="">FHWA considers LOTTR &lt; 1.5 as reliable</p><p id="fbf4c156-649a-4034-ab93-dc8f2482d821" class="">
+</p></li></ol><ol type="1" id="14407f52-1c80-45c8-9a63-a047e12c934f" class="numbered-list" start="6"><li>Travel Time Index<p id="93304488-c8a9-49c6-b3d3-eb39bd775eae" class="">Travel Time Index is a measure of how long it takes to travel under the selected day types and day parts compared to the travel time at free-flow speeds.</p><p id="75a530ec-6368-4a59-8676-41b8a9be02ea" class="">
+</p></li></ol><ol type="1" id="7b407fcb-6afb-448d-b756-c9fac64ff563" class="numbered-list" start="7"><li>Unreliable Segments<p id="787c9729-fab6-42a5-b1fd-9acbdcfe66e6" class="">Unreliable Segments are those that have a Level of Travel Time Reliability that is greater than 1.5 or 150%.</p><p id="583b4452-20b4-4198-be6f-b9be83ce2546" class="">
+</p></li></ol><ol type="1" id="5e6ebb88-deb3-4e62-8b04-233d1856e540" class="numbered-list" start="8"><li>Reliability Factor<p id="d8af1582-2897-4204-ba9f-0bacb4f6a4ea" class="">The percent of miles that are considered reliable or having consistent travel times with low variability</p><p id="a38f0b8a-907d-4293-b29e-3fe54aaadc20" class="">
+</p></li></ol><p id="e149be39-b9a9-40d6-a887-e1d601ba374a" class=""><strong>Vehicles Miles Traveled</strong></p><p id="8eedc685-f3ca-4738-ab42-4122b263f2ce" class="">VMT of roadways is a measure of a roadway’s use relative to a region or other roads.</p><p id="0195b4ed-c0f6-4faf-adbe-5d4521f1cfc9" class="">It is a primary metric for regional travel analysis.</p><p id="73744075-7a07-4da5-bd2e-04604c5ce603" class="">It enables a normalization metric for</p><ul id="c9538cd8-2589-497a-9c3f-c3775cedabac" class="bulleted-list"><li style="list-style-type:disc">Travel Time Reliability Metrics</li></ul><ul id="a4cb0db8-541b-48c4-9b58-5b795bb170e3" class="bulleted-list"><li style="list-style-type:disc">Average traffic over a defined segment of corridor</li></ul><ul id="4bb2d9dd-437e-4e09-ac72-1477a656e196" class="bulleted-list"><li style="list-style-type:disc">Vehicle Hours of Delay</li></ul><ul id="19cb14cf-1e29-4c38-8c62-611a57e15f8a" class="bulleted-list"><li style="list-style-type:disc">Crash Rate Analysis</li></ul><ul id="92c885ec-19db-442b-9dbf-bc5bcd881038" class="bulleted-list"><li style="list-style-type:disc">Emissions studies - both point and regional and point-source</li></ul><p id="6f0b0098-891a-487f-a42d-8458a0062569" class="">VMT = Volume * Road Length</p><p id="10da79a0-91cb-40dc-88ab-ed5334401ddb" class="">
+</p><p id="46da4817-34a8-46d6-bb3f-0dd5f7a69a85" class=""><strong>Vehicle Hours of Delay</strong></p><ul id="066ef05d-f934-420e-9f9c-fd9720190f8a" class="bulleted-list"><li style="list-style-type:disc">Used to analyze congestion in an area</li></ul><ul id="221bd8ea-80b6-4cef-9b22-bbaaebeb4840" class="bulleted-list"><li style="list-style-type:disc">Integral for transportation planning and policy decisions.</li></ul><ul id="839750c0-d3e9-4cef-a509-d489598beb1e" class="bulleted-list"><li style="list-style-type:disc">Defined as an aggregate metric that represents the amount of time vehicles spend in congestion versus the time travel would take in free flow conditions.</li></ul><p id="48ede4b0-f9b3-4bdb-a001-69f54fa06094" class="">Using StreetLight InSight®, we can calculate VHD in a Segment Analysis</p><p id="5dec2648-17c0-4753-b9bf-1f4088d4d4ab" class="">VHD can be combined with a Vehicle Occupancy Factor to derive total Person Hours of Delay.</p><p id="f291db68-c745-435f-ab39-51b60b29c9aa" class="">VHD for Day Part = (VMT/Average segment speed) - (VMT/Segment free flow speed)</p><p id="bdfe0cbf-5282-4629-b4c2-c262a773b20a" class="">
+</p><p id="e888d4e7-bfbd-4747-b4dd-7a78dee4f357" class=""><strong>Peak Hour Factor</strong></p><p id="627ea571-c209-4f7a-a1e6-acb4c19ba56b" class="">A Metric that indicates the consistency of traffic volume during the peak traffic hour. In StreetLight InSight®, you can get it by running a Turning Movement Counts Analysis.</p><p id="6af8b567-5d57-4fad-a699-b57593dc9bb5" class="">Peak Hour Factor (PHF) metrics compare the traffic volume during the busiest 15-minutes of the peak hour with the total volume during the peak hour.</p><p id="eee51567-cc85-4579-8b05-0ce09a40a875" class="">PHF is between 0 and 1, where a PHF closer to 1 indicates that the traffic flow is consistent throughout the hour. This number can then be used in roadway capacity planning.</p><p id="f1bbc006-04e7-47c9-9a9f-413675b64c7d" class="">
+</p><p id="60c6c316-f64d-451c-8c3c-aef26ffc930a" class="">Match the Reliability Metric to the correct equation</p><ul id="53066452-3cae-4825-b05a-0fd3d9ff770e" class="bulleted-list"><li style="list-style-type:disc">Vehicle Miles Traveled = Volume * Road Length</li></ul><ul id="02d852cb-d2cb-4aa9-b382-61cb37b9aa9b" class="bulleted-list"><li style="list-style-type:disc">Planning Time Index = (95th Percentile Travel Time) / (Free Flow Travel Time)</li></ul><ul id="0024a82c-df13-44d4-8053-e652833040d0" class="bulleted-list"><li style="list-style-type:disc">Congestion =1 - Free Flow Factor</li></ul><p id="c4982ee4-d0bd-432d-98cd-a32a463ee166" class="">
+</p><table id="6ed9e0b8-6d62-4666-be99-c14e4eca0c69" class="simple-table"><tbody><tr id="e4541879-9319-4345-9545-0f463e7e9d91"><td id="Zjx{" class=""><strong>Analysis Type</strong></td><td id="qlXo" class=""><strong>Trip Attributes</strong></td></tr><tr id="d571428d-24e8-4de2-9e8f-d35e16c11a2e"><td id="Zjx{" class="">Zone Activity</td><td id="qlXo" class=""><strong>✔</strong></td></tr><tr id="91a47595-3289-4016-aa47-677a04896d35"><td id="Zjx{" class="">Origin-Destination</td><td id="qlXo" class=""><strong>✔</strong></td></tr><tr id="5b838fe2-1b84-4224-b787-5922c0f03cc7"><td id="Zjx{" class="">O-D through Middle Filter</td><td id="qlXo" class=""><strong>✔</strong></td></tr><tr id="bff23359-465f-4c0f-8394-2adb2c62791d"><td id="Zjx{" class="">Trips to or from Pre-set Geography</td><td id="qlXo" class=""><strong>✔</strong></td></tr><tr id="fcf956a2-d4b1-48f1-ac1f-d9f63ca16899"><td id="Zjx{" class="">Top Routes for Zones</td><td id="qlXo" class="">❌</td></tr><tr id="d9f403e1-2d77-4e95-bb29-cef00d5c5ae5"><td id="Zjx{" class="">Top Routes between OD</td><td id="qlXo" class="">❌</td></tr><tr id="521ea3a6-0a0b-475b-9590-3a934e14dafa"><td id="Zjx{" class="">AADT</td><td id="qlXo" class="">❌</td></tr><tr id="5602ed50-af5c-4785-b2f8-eb530b82f19c"><td id="Zjx{" class="">Segment Analysis*</td><td id="qlXo" class=""><strong>✔</strong></td></tr><tr id="2ca6086b-ace6-439c-837c-d969b9ba79f6"><td id="Zjx{" class="">Turning Movement Counts</td><td id="qlXo" class="">❌</td></tr></tbody></table><p id="970d5795-8faf-42c5-8645-62bd9384c3e1" class=""><strong>These are the trip attributes available as add-on Metric options in some StreetLight analyses.</strong></p><ul id="7b550a28-08b2-4040-8dfb-50325c308c8e" class="bulleted-list"><li style="list-style-type:disc">Travel Time (seconds)</li></ul><ul id="82315e0c-1af2-40fc-88ad-10f2ca1a8af5" class="bulleted-list"><li style="list-style-type:disc">Trip Length (miles or km)</li></ul><ul id="be55d75b-ad0c-41d5-880b-7d0f7ff3b5f5" class="bulleted-list"><li style="list-style-type:disc">Trip Speed (mph or kph)</li></ul><ul id="15a62a04-8e1b-433a-b860-30cabae14fa3" class="bulleted-list"><li style="list-style-type:disc">Trip Circuity (ratio)</li></ul><ul id="ba48a9f9-578f-4ed6-a666-f02888834ee4" class="bulleted-list"><li style="list-style-type:disc">Speed Percentiles (%)</li></ul><ul id="2e48bf95-5199-4c6a-bc20-838c8562a78e" class="bulleted-list"><li style="list-style-type:disc">Travel Time Percentiles (%)</li></ul><p id="2881b5ad-6a00-427d-b6f6-78a5eaf98254" class="">
+</p><figure id="fa54a80a-74c9-4f9a-9c27-9392db529b03" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2019.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2019.png"/></a></figure><p id="44b7e49a-3846-4830-af96-21cd22d2de74" class="">
+</p><table id="36babd2d-6534-4190-aa0a-90c3f7c29ef5" class="simple-table"><tbody><tr id="7a202611-7427-40a9-a11e-d0e6faaffb83"><td id="n]N^" class=""><strong>Type of Analysis</strong></td><td id="n&gt;^D" class=""><strong>Traveler Attributes</strong></td><td id="Vrn^" class=""><strong>Mode of Travel</strong></td><td id="oo&lt;n" class=""><strong>Traveler Attributes</strong></td></tr><tr id="f8b3cbd5-86b2-4466-b0e4-cb96ac2affdf"><td id="n]N^" class="">Zone Activity</td><td id="n&gt;^D" class="">✔</td><td id="Vrn^" class="">All Vehicles</td><td id="oo&lt;n" class="">✔</td></tr><tr id="8f0a9279-fdee-4fa4-a154-6b127545bcb9"><td id="n]N^" class="">Origin-Destination</td><td id="n&gt;^D" class="">✔</td><td id="Vrn^" class="">Bicycles</td><td id="oo&lt;n" class="">✔</td></tr><tr id="b2f7a807-d5d1-44e4-8440-2170760570a4"><td id="n]N^" class="">O-D through Middle Filter</td><td id="n&gt;^D" class="">✔</td><td id="Vrn^" class="">Pedestrians</td><td id="oo&lt;n" class="">✔</td></tr><tr id="5ca26b4c-27f8-4f33-bf6f-25cd5e3ab280"><td id="n]N^" class="">Trips to or from Pre-set Geography</td><td id="n&gt;^D" class="">✔</td><td id="Vrn^" class="">Bus</td><td id="oo&lt;n" class="">✔</td></tr><tr id="faece2fe-dbcd-4947-b7cc-8b7f3e13a1fe"><td id="n]N^" class="">Top Routes for Zones</td><td id="n&gt;^D" class=""><strong>X</strong></td><td id="Vrn^" class="">Rail</td><td id="oo&lt;n" class="">✔</td></tr><tr id="adc3d45e-a6cf-4810-95a3-9832f9da5063"><td id="n]N^" class="">Top Routes between O-D</td><td id="n&gt;^D" class=""><strong>X</strong></td><td id="Vrn^" class="">Trucks</td><td id="oo&lt;n" class=""><strong>X</strong></td></tr><tr id="8dacdc4d-4ab6-426a-aff7-da07a6fe8041"><td id="n]N^" class="">AADT</td><td id="n&gt;^D" class=""><strong>X</strong></td><td id="Vrn^" class=""></td><td id="oo&lt;n" class=""></td></tr><tr id="9cce9be9-d40b-481e-92ec-b065c27c78a4"><td id="n]N^" class="">Segment Analysis</td><td id="n&gt;^D" class=""><strong>X</strong></td><td id="Vrn^" class=""></td><td id="oo&lt;n" class=""></td></tr><tr id="0e129848-939b-4953-b552-7da87ee82558"><td id="n]N^" class="">Turning Movement Counts</td><td id="n&gt;^D" class=""><strong>X</strong></td><td id="Vrn^" class=""></td><td id="oo&lt;n" class=""></td></tr></tbody></table><p id="ffcd2515-d865-4161-97d7-56300b2703a7" class=""><strong>Socio-Demographics</strong></p><ol type="1" id="66fd0b3e-44ee-4bdf-b0c3-50d3bbeba576" class="numbered-list" start="1"><li><strong>Equity Demographics</strong> | Race/Ethnicity, Foreign Born, Limited English Proficiency, and Disability Status</li></ol><ol type="1" id="fc1b1632-e5d4-4eb6-9ed0-2596f2fa3979" class="numbered-list" start="2"><li><strong>Education/Income</strong> | Education status and Household Income</li></ol><ol type="1" id="41640df9-a3ec-42ff-81c4-c02251d30398" class="numbered-list" start="3"><li><strong>Household Characteristics</strong> | Household Size/Family Status, Housing Tenure, Units in Structure and Vehicle Ownership</li></ol><ol type="1" id="5e9eca90-21d3-4252-b562-9cd29d674893" class="numbered-list" start="4"><li><strong>Employment Characteristics</strong> | Employment Industry and Occupation and Employment Class of Worker</li></ol><p id="c235f04f-a8f1-4b91-b34c-338cee968870" class="">
+</p><p id="06e780ef-9fa5-4eba-a98e-4a747293e1c3" class=""><strong>Trip Purpose</strong></p><p id="1c26b23b-1056-4a98-a5dc-f69389e869e0" class="">Route Science® will derive a likely purpose for trips in an analysis and assign one of the following three trip purpose categories to trips:</p><ol type="1" id="cbfa69ff-c7b8-4870-a082-c250f2d646d4" class="numbered-list" start="1"><li><strong>Home-Based Work (HBW)</strong>: Travel between home and work in either direction.</li></ol><ol type="1" id="880b1b79-784b-4060-8ee5-67a13a868c7f" class="numbered-list" start="2"><li><strong>Home-Based Other (HBO)</strong>: Travel to or from home, to anywhere other than work.</li></ol><ol type="1" id="abc3780e-061f-4461-8940-158b29b4a5c0" class="numbered-list" start="3"><li><strong>Non-Home Based (NHB)</strong>: All travel not to or from home (i.e. all travel other than the above)</li></ol><p id="d55724f3-19ed-4c71-964e-3dceb0aa7254" class="">
+</p><figure id="3a6b88d8-6a00-422c-a632-9f2d9066e4c4" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2020.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2020.png"/></a></figure><p id="3b4a0af3-598c-463a-a4c1-e9dfdf2ab086" class="">
+</p><table id="b7269a22-8c2f-4a12-a8a6-717162a63980" class="simple-table"><tbody><tr id="bb2dc24f-42e8-4bcd-a8da-200e79a1be14"><td id="iR~p" class=""><strong>Analysis Type</strong></td><td id="`w:{" class=""><strong>Inputs</strong></td><td id="um&lt;K" class=""><strong>Metric Outputs</strong></td></tr><tr id="cf187bef-975a-4dde-9973-d1b61dc95f72"><td id="iR~p" class=""><strong>Turning Movement Counts (TMC)</strong></td><td id="`w:{" class="">TMC Gates</td><td id="um&lt;K" class="">All Vehicles  Volume / Index Peak Hour Factor</td></tr><tr id="8ebf8e62-5b82-48b4-b348-a157b271ba2a"><td id="iR~p" class=""><strong>Zone Activity (ZA)</strong></td><td id="`w:{" class="">Zone Set (Line Zone / Gate / Area)</td><td id="um&lt;K" class="">All modes  Volume / Index  Trip Attributes, Traveler Attributes, Home &amp; Work Locations (HWL)</td></tr><tr id="08316d92-d1fc-4179-bdda-7af43d1b66e3"><td id="iR~p" class=""><strong>Origin-Destination (OD)</strong></td><td id="`w:{" class="">Origin Zone Set (Line Zone / Gate / Area)Destination Zone Set (Line Zone / Gate / Area)</td><td id="um&lt;K" class="">All modes  Volume / Index  Trip Attributes, Travel Time   Percentiles, Speed Percentiles,  Traveler Attributes</td></tr><tr id="d544831d-f132-44b5-b749-3d109e09691d"><td id="iR~p" class=""><strong>Segment Analysis</strong></td><td id="`w:{" class="">Zone Set (Line Zones only)</td><td id="um&lt;K" class="">All Vehicles, Trucks  Volume / Index  Travel Time and Travel Time   Percentiles, Speed and Speed   Percentiles, Congestion, Average  Speed, Average Travel Time, Vehicle  Miles Traveled (VMT), Vehicle Hours  of Delay (VHD)</td></tr><tr id="73fcbf34-3de7-451f-9d11-9518d52f02bc"><td id="iR~p" class=""><strong>AADT</strong></td><td id="`w:{" class="">Zone Set (Line Zones and Gates only)</td><td id="um&lt;K" class="">All Vehicles  AADT by Year</td></tr><tr id="7f6fcf0a-8650-41ac-8f43-c96b0460c9e1"><td id="iR~p" class=""><strong>Top Routes for Zones</strong></td><td id="`w:{" class="">Zone Set (Line Zone/ Gate/ Area)</td><td id="um&lt;K" class="">All Vehicles, Trucks  Volume / Index on Routes</td></tr><tr id="113270c4-a527-4fa1-8307-c4a453349008"><td id="iR~p" class=""><strong>Origin-Destination through Middle Filters (ODMF)</strong></td><td id="`w:{" class="">Origin Zone Set (Line Zone/ Gate/ Area)<br/>Middle Filter Zone Set (Line Zone, Gate only)<br/>Destination Zone Set (Line Zone/ Gate/ Area)<br/></td><td id="um&lt;K" class="">All modes except Pedestrian  Volume / Index  Trip Attributes, Travel Time   Percentiles, Speed Percentiles,   Traveler Attributes</td></tr><tr id="f6939222-8be3-4707-acb1-863c1fed5079"><td id="iR~p" class=""><strong>Trips to or from Preset Geography</strong></td><td id="`w:{" class="">Zone Set (Line Zone/ Gate/ Area)Choice of Preset Geography</td><td id="um&lt;K" class="">All Vehicles, Trucks, Pedestrian,  Bicycle  Volume / Index to/from Standard  Geographies Trip Attributes, Traveler Attributes</td></tr><tr id="e0a95a08-d6c0-4c0f-8271-3f7f01bc5482"><td id="iR~p" class=""><strong>Top Routes OD</strong></td><td id="`w:{" class="">Origin Zone Set (Line Zone/ Gate/ Area)<br/>Destination Zone Set (Line Zone/ Gate/ Area)<br/></td><td id="um&lt;K" class="">All Vehicles, Trucks Volume / Index on Routes</td></tr></tbody></table><p id="16b9a3ee-b393-452b-95d9-ffc3ea318a9a" class="">Key: Available modes, Output Type, Add-ons</p><p id="b4fbbf91-13d1-49b2-b515-f23b3114ec09" class="">
+</p><h1 id="37e787b5-08b2-4d05-90bb-3778efff75a8" class=""><strong>Steps to Tackle a General Mobility Question</strong></h1><p id="fcbc8f15-1b08-48bf-9124-47afa42293d2" class=""><strong>Once you have a broad idea of your mobility question, follow these steps:</strong></p><ul id="501d7d56-1405-4ad9-bfc3-995836e45576" class="bulleted-list"><li style="list-style-type:disc">1<p id="28dfcbfc-3821-4572-965b-51f631c45297" class="">Start with an exploratory analysis over the area by using zones in the Zone Library.</p><p id="7fefbfe2-d00b-4b07-9f75-20cb8375add2" class="">Try the following analyses:</p><p id="2a7e7a2f-08e7-4b5d-b36e-8820b44f99cb" class=""><strong>Top Routes</strong> or <strong>Top Routes OD</strong> for results on routes used</p><p id="809ab7b3-3a79-4f67-a841-fea8667437cf" class=""><strong>Trips to or from Pre-set Geography</strong> for results on trips starting or ending at standard       geographies like US Census Tracts, Zip Codes, Block Groups, or Canadian                           Dissemination Areas</p><p id="ff96f5da-2d64-47d7-b7bf-58319c4bb8f1" class=""><strong>Zone Activity</strong> with Home and Work Locations (HWL) for results on where travelers in       your zone live and work</p><p id="57fc4ccf-5982-42f1-b17b-cbcbc5859cbb" class="">
+</p></li></ul><ul id="9f85a5e7-229e-46aa-a5eb-9d1191bef82f" class="bulleted-list"><li style="list-style-type:disc">2<p id="158048ed-af35-4ea6-ba19-28d466928abc" class="">Run analyses to focus on the Metrics you need based on the results from step one.   </p><p id="b51bdc00-6bf5-4fab-8d37-584beb591632" class="">Define your transportation question more specifically with geographic and temporal         aspects   </p><p id="f79f59bd-8881-4e72-8842-630f67484732" class="">Use analyses that specify origin, destination, and middle filter (e.g. OD, ODMF, TMC,           Segment Analysis)</p><p id="fda29653-4896-4fa8-89e6-53760d129374" class="">
+</p></li></ul><ul id="050fe67c-2381-42b1-b09f-d814585aca7e" class="bulleted-list"><li style="list-style-type:disc">3<p id="1320d734-d651-4636-8415-87985b9d7773" class="">Rerun your analyses with slightly modified configurations for comparison.   </p><p id="70c0fb23-858b-466a-8203-82d1cd8f1a5c" class="">Analyze mobility patterns over time, by different modes, or with additional trip or               traveler attributes   </p><p id="f58a16ac-0e34-44f4-a101-ee3cb90c9a62" class="">Change day types and day parts to increase the granularity of your Metrics</p><p id="3f4e7ee4-0ab1-4e5f-8025-cd0ca8172292" class="">
+</p></li></ul><p id="b32b89b6-5165-4df3-ad67-77dc742dbc54" class=""><strong>National Performance Management Measures</strong></p><p id="f6dcf6d4-3ae0-424b-a72b-056a430f2e54" class="">Travel time reliability measures are included in several federal reporting requirements like Moving Ahead for Progress in the 21st Century (MAP-21) which establishes a system reliability goal.</p><p id="d19c4062-8cff-4780-a5a4-842299b5b6a0" class="">Transportation Performance Management (TPM) Performance Measure Rule 3 (PM3) includes the following measures:</p><ul id="16f7b105-ca05-4ed1-b7c1-a520dd95fe8d" class="bulleted-list"><li style="list-style-type:disc">Interstate Travel Time Reliability Measure - using Level Of Travel Time Reliability (LOTTR)</li></ul><ul id="dc08d308-d746-4c38-9eb9-cdd7bc91515b" class="bulleted-list"><li style="list-style-type:disc">Non-interstate Travel Time Reliability Measure – using Level Of Travel Time Reliability (LOTTR)</li></ul><ul id="9ab17de2-3b56-4a18-97e3-8fafebb4a26c" class="bulleted-list"><li style="list-style-type:disc">Freight Reliability Measure – using Truck Travel Time Reliability (TTTR)</li></ul><ul id="5918a287-dc57-4708-a669-eaec477b164c" class="bulleted-list"><li style="list-style-type:disc">Peak Hour Excessive Delay – using vehicle hours of delay (VHD)</li></ul><p id="2c39a202-24a5-4b9e-b71d-ede5509cedaa" class="">As of January 2022, federal reporting requirements related to PM3 must be fulfilled using data from the National Performance Measurement Research Data Set (NPMRDS).</p><p id="3c44db34-5acd-43da-8b08-5b3b6dd48d8b" class="">For local, state, and MPO planning, StreetLight can provide a wealth of Metrics that offer insight on travel time reliability.</p><p id="3bf5799c-deb0-4a72-8bdf-48014cb3f79d" class="">
+</p><p id="3fc8786a-8c7b-4043-8616-70da6214db4a" class=""><strong>Value of Reliable Travel Times</strong></p><ul id="f8cbfc59-633e-4589-9fa9-0947dfe24e27" class="bulleted-list"><li style="list-style-type:disc">Improvements targeted at TTR reduce delay due to traffic-influencing events</li></ul><ul id="42a7c5c7-c7fc-4633-b3f2-c8ca9fc0c0bc" class="bulleted-list"><li style="list-style-type:disc">Addressing the major components of unreliable travel (crashes, bad weather, and work zones) leads to safer highways</li></ul><ul id="1247bcbd-e09d-44f4-a402-7485ce30cc87" class="bulleted-list"><li style="list-style-type:disc">More reliable travel times save time, fuel, and money for commuters and freight carriers</li></ul><p id="0f0e7365-f27b-4a0d-9765-553a9de5ccc9" class="">Examples of Reliability Metrics:</p><ul id="79a481b8-c184-4827-b74c-9d5c81a7222b" class="bulleted-list"><li style="list-style-type:disc">Percentile travel times (50th, 80th, 90th, 95th)</li></ul><ul id="af535b5d-727b-4641-8aa3-aa9c67c701ee" class="bulleted-list"><li style="list-style-type:disc">Planning time and planning time index</li></ul><ul id="8381d8dd-983a-445d-9f4b-fbb829a04bd2" class="bulleted-list"><li style="list-style-type:disc">Buffer time and buffer time index</li></ul><ul id="f1a2540f-3066-49e7-83f9-f60b841cfd97" class="bulleted-list"><li style="list-style-type:disc">Level Of Travel Time Reliability (LOTTR)</li></ul><ul id="150b859a-b827-4397-9f65-89a99b6fed4d" class="bulleted-list"><li style="list-style-type:disc">Truck Travel Time Reliability (TTTR)</li></ul><p id="57cd9e5a-05e2-499e-a4b0-b157473da156" class="">Diagrams below were recreated from a diagram in FHWA <a href="https://ops.fhwa.dot.gov/publications/tt_reliability/brochure/ttr_brochure.pdf">Travel Time Reliability Brochure</a>.</p><figure id="43eeb820-07d2-4ccb-945a-82000c279425" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2021.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2021.png"/></a></figure><p id="1e525fe2-b89c-4652-bea5-a0fb46e22c5e" class="">
+</p><p id="1f904492-4676-4cbc-88d8-f5be6d299aad" class="">Buffer time represents the extra amount of time a traveler would need to budget for a trip to ensure an on time arrival 95% of the time. It is calculated as the 95th percentile travel minus the average travel time.</p><p id="4cb5badb-b29a-4470-aaec-3ba010ea30df" class="">Buffer index is size of the buffer as a percentage of the average (95th percentile minus the average , divided by the average)</p><p id="5730cca5-135b-450f-bbe0-ad4cd263176a" class="">Buffer Index = (TT95 - TTAverage) / TTAverage * 100</p><p id="f736828e-8cf6-4175-b63c-70701c50b602" class="">
+</p><p id="18dc25c3-9f74-4a17-8c9d-52f4997b5cf9" class="">The TTTR Index is defined as the 95th percentile truck travel time divided by the 50th percentile truck travel time.</p><p id="9df5916a-87d4-48df-b39d-d4249fecb467" class="">
+</p><p id="79d6d01e-54f4-40b8-aadf-1e0400842b11" class=""><strong><strong>How to Use LOTTR for TTR Reporting</strong></strong></p><p id="6ddeefec-7819-4a18-a42d-4b288f3de66e" class="">TPM’s interstate and non-interstate travel time reliability measures combine LOTTR at different day types and parts to calculate a percent person-miles traveled that are reliable. For each directional interstate roadway section, LOTTR is calculated for each of the following four reliability reporting periods:</p><ul id="d180cc49-d131-4ef3-82d5-1e05f311cc5b" class="bulleted-list"><li style="list-style-type:disc">1<p id="82637e7a-ccc7-4c74-93de-650fade36a21" class="">All weekday am peak periods (6am to 10am) during a calendar year [AMP]</p></li></ul><ul id="8055303b-1a24-4aab-b9c6-697b880429da" class="bulleted-list"><li style="list-style-type:disc">2<p id="1e086f15-651d-4cc0-965d-d0ddb71e624f" class="">All weekday midday periods (10am to 4pm) during a calendar year [MIDD]</p></li></ul><ul id="83fbab5a-b078-40c1-98b0-0a3642683663" class="bulleted-list"><li style="list-style-type:disc">3<p id="50aa0e84-00ee-482c-ae6d-72184e44c22f" class="">All weekday p.m. peak periods (4pm to 8pm) during a calendar year [PMP]</p></li></ul><ul id="a88a4e60-3c5d-4ebc-a30e-1c521f80b330" class="bulleted-list"><li style="list-style-type:disc">4<p id="459495a2-1579-4a6a-b974-b02a1dae8123" class="">All weekend daytime periods (Saturday and Sunday, 6am to 8pm) during a calendar year [WE]</p></li></ul><p id="b9ce5625-03a6-481e-a09c-dbbfbc3ac2ed" class="">Interstate travel time reliability is then calculated as the length – and person trip – weighted percentage of interstate roadway sections that have LOTTRs less than 1.50 during all four periods.</p><figure id="ed84dbef-4e3c-4211-b603-4735179713ac" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/18ir9ntx6ochb/scormcontent/assets/a4cRYAj3K33Mz8EV_tD28j9uRMFnDKmmj.png"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/18ir9ntx6ochb/scormcontent/assets/a4cRYAj3K33Mz8EV_tD28j9uRMFnDKmmj.png"/></a></figure><p id="b5533d95-ebab-47ca-a8a6-c8b7d902419a" class=""><strong><strong>How to Calculate TTTR Index</strong></strong></p><p id="d533e835-5469-465a-af29-61bbad49933b" class="">For each roadway section, a TTTR Index is calculated for each of the following five reliability reporting periods:</p><ul id="24d9c26b-26f2-475b-81b3-298f2a6336a4" class="bulleted-list"><li style="list-style-type:disc">1<p id="cc744638-6fa5-4509-ac59-c3e73203cb77" class="">All weekday am peak periods (6am to 10am) during a calendar year [AMP]</p></li></ul><ul id="36e52146-6ca4-4e18-a8e3-09ab73c4751d" class="bulleted-list"><li style="list-style-type:disc">2<p id="35db5ca2-c1bd-4b25-ab6c-e3513dcba178" class="">All weekday midday periods (10am to 4pm) during a calendar year [MIDD]</p></li></ul><ul id="3a1fa960-110a-407b-95ba-a5fb427e7507" class="bulleted-list"><li style="list-style-type:disc">3<p id="0ad60060-5d09-4ff7-b5e0-2a557831672b" class="">All weekday p.m. peak periods (4pm to 8pm) during a calendar year [PMP]</p></li></ul><ul id="0ce1c523-fc13-40b6-ad64-e749ab981764" class="bulleted-list"><li style="list-style-type:disc">4<p id="0712aa45-a996-423b-9fb4-5a57c3cc3fd3" class="">All weekend daytime periods (Saturday and Sunday, 6am to 8pm) during a calendar year [WE]</p></li></ul><ul id="4c696b13-831e-41bb-a8f3-459681bde0ac" class="bulleted-list"><li style="list-style-type:disc">5<p id="230289d2-3550-4c06-bb10-4fb4a1028b1f" class="">All nighttime periods (Sunday through Saturday, 8pm to 6am) during a calendar year [OVN]</p></li></ul><p id="0ff4df7e-fe30-4840-9ce9-9cf7f0f8b411" class="">FHWA’s freight reliability measure is calculated as the length-weighted average of the maximum of the five TTTR Index values for each Interstate roadway segment in the state.</p><figure id="52a99c50-01a2-4ab6-82a9-31a51aa53ef4" class="image"><a href="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/18ir9ntx6ochb/scormcontent/assets/g_ZKkZluENEX5563_022uefs5_iiQxyFV.png"><img src="https://training.streetlightdata.com/content/wp/1goiblw4bl7uq/18ir9ntx6ochb/scormcontent/assets/g_ZKkZluENEX5563_022uefs5_iiQxyFV.png"/></a></figure><figure id="85d9af34-99e5-4a47-b8a1-9a2199de37f6" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2022.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2022.png"/></a></figure><p id="939c13c6-9b8c-477e-bc6e-7b9cbf9ef7e9" class="">
+</p><p id="c408c4ca-c8c9-441e-a033-3a92230289ce" class=""><strong><strong>Vehicle miles / kilometers traveled (VMT / VKT)<br/>–<br/></strong></strong></p><ul id="2109b4e5-0044-44c7-8d26-df278102ea31" class="bulleted-list"><li style="list-style-type:disc">VMT of roadways is a measure of a roadway’s use relative to a region or other roads</li></ul><ul id="8e9cc10a-3de3-45ab-ab5b-ad78c8fe8275" class="bulleted-list"><li style="list-style-type:disc">It is a primary metric for regional travel analysis</li></ul><ul id="154c5e86-3677-457e-b507-0898d93b523c" class="bulleted-list"><li style="list-style-type:disc">It enables a normalization metric for:<ul id="960587b8-613e-46f3-96b3-74c99cff56cb" class="bulleted-list"><li style="list-style-type:circle">Travel time reliability metrics</li></ul><ul id="1f86c053-99d2-46a5-971c-ca392342599e" class="bulleted-list"><li style="list-style-type:circle">Average traffic over a defined segment of corridor</li></ul><ul id="6f5c9e93-882e-4549-b0b3-eb58fdd9a4ee" class="bulleted-list"><li style="list-style-type:circle">Vehicle hours of delay</li></ul><ul id="07bfd477-df0e-4041-9688-a2b0b208cdce" class="bulleted-list"><li style="list-style-type:circle">Crash rate analysis</li></ul><ul id="bda7cba9-7a9f-46ab-a23b-6faac649e409" class="bulleted-list"><li style="list-style-type:circle">Emissions studies (both point and regional and point-source)</li></ul></li></ul><p id="8dc3b121-92b9-4d51-8d50-818f12605a24" class=""><strong>VMT = Volume * Road Length</strong></p><p id="bf7852ab-2b67-4446-a1a2-6636ac850286" class="">
+</p><p id="1c630dd6-4b5b-4226-941b-db9ea54e689e" class=""><strong><strong>Vehicle hours of delay<br/>–<br/></strong></strong></p><ul id="ff499965-59e2-40fc-820c-6b4601d07460" class="bulleted-list"><li style="list-style-type:disc">Used to analyze congestion in an area</li></ul><ul id="fb9655c9-a3f5-4dbd-a7fd-a4570af9c3d0" class="bulleted-list"><li style="list-style-type:disc">Integral for transportation planning and policy decisions</li></ul><ul id="8f99b958-ca8b-4a35-a2df-38f0fcb24b55" class="bulleted-list"><li style="list-style-type:disc">Defined as an aggregate metric that represents the amount of time vehicles spend in congestion versus the time it would take to travel in free flow conditions</li></ul><p id="d332177f-3c44-4fc4-8668-1d6ae675a1f9" class="">Using StreetLight InSight®, we can calculate VHD by running a Segment Analysis. VHD is calculated for you using the following formula:</p><figure id="1907d7fe-d384-4fa8-abf5-b998c81c21ce" class="image"><a href="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2023.png"><img style="width:708px" src="Getting%20Started%201d163be176334705b77fe8e7b5585012/Untitled%2023.png"/></a></figure><p id="12c27e78-7530-429e-a052-161c7c661807" class="">
+</p><p id="950b3018-f977-466c-a858-d11f4d6b635b" class=""><strong><strong>Which Analysis Types Output Reliability Metrics?</strong></strong></p><p id="bccc48c1-ed75-476c-88be-f01acbd882bb" class="">The chart below summarizes which analysis types can be used to output the Metrics needed for TTR measures.</p><table id="2f5c1cbd-dd17-44d7-aa91-8ce3ad7ce456" class="simple-table"><tbody><tr id="baaf7861-8ef5-4192-a1c6-1bec1bbd60f8"><td id="?LfF" class=""><strong>Metric</strong></td><td id="Su&lt;i" class=""><strong>Analysis Type</strong></td><td id="ESAT" class=""><strong>Options</strong></td></tr><tr id="4c5980d3-e8e7-431a-b543-aa100abd34da"><td id="?LfF" class=""><strong>Speed</strong></td><td id="Su&lt;i" class="">OD, ODMF, Segment Analysis, ZA</td><td id="ESAT" class="">Trip Attributes</td></tr><tr id="040bafad-e6f1-49d2-87c7-a8aec98f97d2"><td id="?LfF" class=""><strong>Congestion</strong></td><td id="Su&lt;i" class="">Segment Analysis</td><td id="ESAT" class=""></td></tr><tr id="1b40f82d-37ef-4033-8155-67a9cd9f3ccf"><td id="?LfF" class=""><strong>Free Flow Travel Time</strong></td><td id="Su&lt;i" class="">Segment Analysis</td><td id="ESAT" class="">Travel Time Percentiles</td></tr><tr id="16bdb06f-6245-4e35-9307-bd4ae6047e78"><td id="?LfF" class=""><strong>Percentile Travel Time</strong></td><td id="Su&lt;i" class="">OD, ODMF, Segment Analysis, ZA</td><td id="ESAT" class="">Travel Time Percentiles</td></tr><tr id="095ed8f6-0036-41d2-889c-dc22727e2dd8"><td id="?LfF" class=""><strong>Buffer Time</strong></td><td id="Su&lt;i" class="">OD, ODMF, Segment Analysis, ZA</td><td id="ESAT" class="">Travel Time Percentiles</td></tr><tr id="6f62c0ab-622d-4e96-a789-42f42a6dbf90"><td id="?LfF" class=""><strong>Truck Travel Time Reliability</strong></td><td id="Su&lt;i" class="">OD, ODMF, Segment Analysis, ZA</td><td id="ESAT" class="">Travel Time Percentiles</td></tr><tr id="a6e4c6b1-24d0-47e9-b4f1-9282dd099616"><td id="?LfF" class=""><strong>Level of Travel Time Reliability</strong></td><td id="Su&lt;i" class="">OD, ODMF, Segment Analysis, ZA</td><td id="ESAT" class="">Travel Time Percentiles</td></tr><tr id="d503bdda-a6d0-4f4e-8629-8aac2485f713"><td id="?LfF" class=""><strong>Vehicle Miles Traveled</strong></td><td id="Su&lt;i" class="">ZA, OD, AADT*, Segment Analysis</td><td id="ESAT" class=""></td></tr><tr id="5ebfd594-8940-4c06-abd1-880098c599d9"><td id="?LfF" class=""><strong>Vehicle Hours of Delay</strong></td><td id="Su&lt;i" class="">Segment Analysis</td><td id="ESAT" class=""></td></tr></tbody></table><ul id="6a09e5ed-90bc-481c-9dec-872cc7d2c2d1" class="bulleted-list"><li style="list-style-type:disc">Road VMT using AADT requires external input of road segment length.</li></ul><p id="3ac69297-cb44-4bb2-870b-073e725ddf77" class="">
+</p><p id="9b5c5ddc-0a4b-4c96-8a1f-f7f38a6a7479" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
